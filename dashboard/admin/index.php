@@ -134,16 +134,12 @@ require_once('../../includes/sessions.php');
         </a>
       </li><!-- End Dashboard Nav -->
 
-<<<<<<< HEAD
-      <!-- Hidden sidebar  -->
-      <!--li class="nav-item">
-=======
       <li class="nav-item">
->>>>>>> 41b302c64e94aaf6d5de4bd71ad03dc8e07bce4f
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Student Management</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>To-Do Management</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <!--ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
             <a href="forms-elements.html">
               <i class="bi bi-circle"></i><span>View Student</span>
@@ -164,13 +160,10 @@ require_once('../../includes/sessions.php');
               <i class="bi bi-circle"></i><span>Delete Student</span>
             </a>
           </li>
-        </ul>
-<<<<<<< HEAD
-      </li--><!-- End Components Nav -->
-=======
+        </ul-->
       </li><!-- End Components Nav -->
->>>>>>> 41b302c64e94aaf6d5de4bd71ad03dc8e07bce4f
 
+      </li><!-- End Components Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-journal-text"></i><span>User Management</span><i class="bi bi-chevron-down ms-auto"></i>
