@@ -134,8 +134,12 @@ require_once('../../includes/sessions.php');
         </a>
       </li><!-- End Dashboard Nav -->
 
+<<<<<<< HEAD
       <!-- Hidden sidebar  -->
       <!--li class="nav-item">
+=======
+      <li class="nav-item">
+>>>>>>> 41b302c64e94aaf6d5de4bd71ad03dc8e07bce4f
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-menu-button-wide"></i><span>Student Management</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -161,7 +165,11 @@ require_once('../../includes/sessions.php');
             </a>
           </li>
         </ul>
+<<<<<<< HEAD
       </li--><!-- End Components Nav -->
+=======
+      </li><!-- End Components Nav -->
+>>>>>>> 41b302c64e94aaf6d5de4bd71ad03dc8e07bce4f
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
