@@ -14,9 +14,6 @@
         color:#434f5b;
         background-color: rgb(240,246,255);
       }
-      footer{
-        text-align: center;
-      }
 
     </style>
 </head>
@@ -209,7 +206,7 @@
             <div class="col-md-6 mt-4">
                 <div id="map" style="height: 350px;width: auto;"></div>
             </div>
-            <div class="col-md-6 mt-4 p-3" style="background-color: rgb(219, 230, 226);">
+            <div class="col-md-6 mt-4 p-3" style="background-color: rgb(219, 230, 226);border-radius: 10px;">
                 <h3>Nearby Tour Guides</h3>
                 <div class="row">
                     <div class="col-md-5 mb-3">
@@ -243,13 +240,28 @@
                         Email: prd@gmail.com
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>
-    
+    <div class="container mt-4 p-3"style="background-color: rgb(219, 230, 226);border-radius: 10px;">
+        <div class="d-flex justify-content-center row">
+        <h2>Comments</h2>
+        <form id="commentForm">
+            <label for="commentText">Your Comment:</label>
+            <textarea id="commentText" name="commentText" rows="4" required></textarea>
 
-    <footer class="bg-dark text-white py-4" style="margin-top: 30px;">
+            <label for="imageInput">Upload Image:</label>
+            <input type="file" id="imageInput" name="imageInput">
+
+            <button type="submit">Submit Comment</button>
+        </form>
+        </div>
+
+        <div id="comments">
+            <!-- Display comments here -->
+        </div>
+    </div>
+    <footer class="bg-dark text-white py-4" style="margin-top: 30px;text-align: center;">
       <div class="container-fluid">
           <div class="row">
               <div class="col-md-6">
