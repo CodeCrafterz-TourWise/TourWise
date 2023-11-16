@@ -12,7 +12,7 @@ if (isset($_SESSION['login_user'])) {
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Insight Institute of Management and Technology</title>
+  <title>Tourwise Login</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -50,7 +50,6 @@ if (isset($_SESSION['login_user'])) {
 
               <div class="d-flex  py-2">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-
 
                 </a>
                 <img src="assets/img/logo.png" alt="" width="100%" height="150px">
