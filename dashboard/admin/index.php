@@ -70,7 +70,7 @@ require_once('../../includes/sessions.php');
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6><? echo "$username"?></h6>
+              <h6><? echo "$name"?></h6>
               <span>Web Designer</span>
             </li>
             <li>

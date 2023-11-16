@@ -1,5 +1,5 @@
 <?php
-include('login.php'); 
+include('login.php');
 if (isset($_SESSION['login_user'])) {
   header("location: dashboard/admin/index.php");
 }
@@ -64,7 +64,7 @@ if (isset($_SESSION['login_user'])) {
                       <h5 class="card-title text-center pb-0 fs-4">Login</h5>
                     </a>
                   </div>
-                  <form class="row g-3 needs-validation" method="POST" >
+                  <form class="row g-3 needs-validation" method="POST">
                     <div class="col-12">
                       <label for="username" class="form-label">Username</label>
                       <div class="input-group has-validation">
@@ -82,16 +82,15 @@ if (isset($_SESSION['login_user'])) {
                     <div class="col-12">
                     </div>
                     <div class="col-12">
-                      <input type="submit" class="btn btn-primary w-100" name="submit">
+                      <input type="submit" class="btn btn-primary w-100" name="submit" value="Login">
                     </div>
                     <div id="alert-container"></div>
                   </form>
-
+                  <div>
+                  <p class="small mb-0">Don't you have an account? <a href="register.php"><span>Register</span></a>
+                  </div>
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>
@@ -107,21 +106,21 @@ if (isset($_SESSION['login_user'])) {
 
   <script>
     function displayError(message) {
-    Swal.fire({
+      Swal.fire({
         icon: 'error',
         title: 'Error',
         text: message
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Check if PHP has set an error message, and if so, display it
-    <?php
-    if (!empty($error)) {
-        echo "displayError('$error');";
+      });
     }
-    ?>
-});
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if PHP has set an error message, and if so, display it
+      <?php
+      if (!empty($error)) {
+        echo "displayError('$error');";
+      }
+      ?>
+    });
   </script>
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>

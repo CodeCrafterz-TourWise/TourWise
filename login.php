@@ -11,17 +11,16 @@ if (isset($_POST['submit'])) {
 
         // Define $username and $password
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $enteredPassword = $_POST['password'];
 
         // To protect MySQL injection for Security purpose
         $username = stripslashes($username);
-        $password = stripslashes($password);
+        $enteredPassword = stripslashes($enteredPassword);
         $username = mysqli_real_escape_string($con, $_POST['username']);
-        $password = mysqli_real_escape_string($con, $_POST['password']);
 
         // Selecting Database
-        $sql = "SELECT * FROM users WHERE password='$password' AND username='$username'";
-        
+        $sql = "SELECT * FROM users WHERE username='$username'";
+
         // SQL query to fetch information of registered users and find user match.
         $result = mysqli_query($con, $sql);
 
@@ -33,23 +32,29 @@ if (isset($_POST['submit'])) {
 
         if ($rows == 1) {
             $row = mysqli_fetch_assoc($result);
+            $storedPassword = $row['password'];
             $userRole = $row['role'];
 
-            if ($userRole == 1) {
-                // Admin dashboard
-                $_SESSION['login_user'] = $username; // Initializing Session
-                header("location: dashboard/admin/index.php");
-            } elseif ($userRole == 2) {
-                // User dashboard
-                $_SESSION['login_user'] = $username; // Initializing Session
-                header("location: dashboard/user/index.php");
+            // Verify entered password with stored hashed password
+            if (password_verify($enteredPassword, $storedPassword)) {
+                if ($userRole == 1) {
+                    // Admin dashboard
+                    $_SESSION['login_user'] = $username; // Initializing Session
+                    header("location: dashboard/admin/index.php");
+                } elseif ($userRole == 2) {
+                    // User dashboard
+                    $_SESSION['login_user'] = $username; // Initializing Session
+                    header("location: dashboard/user/index.php");
+                } else {
+                    $error = "Invalid role";
+                }
             } else {
-                $error = "Invalid role";
+                $error = "Username or Password is invalid";
             }
         } else {
             $error = "Username or Password is invalid";
         }
-        
+
         mysqli_close($con); // Closing Connection
     }
 }
