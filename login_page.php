@@ -97,7 +97,7 @@ if (isset($_SESSION['login_user'])) {
           </div>
         </div>
         <div class="credits">
-          Developed by <a href="https://www.linkedin.com/in/mms-aazeem/">Azeem</a>
+          Developed by <a href="#">Code-Crafterz</a>
         </div>
       </section>
 
