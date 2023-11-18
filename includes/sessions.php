@@ -1,14 +1,21 @@
 <?php
-// Establishing Connection with Server by passing server_name, user_id and password as a parameter
 include 'config.php';
-session_start(); // Starting Session
-// Storing Session
+session_start();
+
 $user_check = $_SESSION['login_user'];
-// SQL Query To Fetch Complete Information Of User
-$ses_sql = mysqli_query($con, "select name from users where username='$user_check'");
+
+$ses_sql = mysqli_query($con, "SELECT * FROM users WHERE username='$user_check'");
 $row = mysqli_fetch_assoc($ses_sql);
-$login_session = $row['name'];
-if (!isset($login_session)) {
-    mysqli_close($con); // Closing Connection
-    header('Location: index.php'); // Redirecting To Home Page
+
+if (!$row) {
+    mysqli_close($con);
+    header('Location: index.php');
+    exit(); // It's a good practice to exit after sending a header redirect
 }
+
+$login_name = $row['name'];
+$login_email = $row['email'];
+$login_username = $row['username'];
+$login_password = $row['password']; // Assuming the password is stored as plain text
+
+?>
