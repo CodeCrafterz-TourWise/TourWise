@@ -33,6 +33,18 @@ while ($place = mysqli_fetch_assoc($placesResult)) {
     $places[] = $place;
 }
 
+
+
+// Retrieve nearby tour guides
+$guideQuery = "SELECT * FROM tour_guides WHERE p_id = $provinceId";
+$guidesResult = mysqli_query($con, $guideQuery);
+
+// Fetch the tour guides data
+$guides = [];
+while ($guide = mysqli_fetch_assoc($guidesResult)) {
+    $guides[] = $guide;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -45,16 +57,13 @@ while ($place = mysqli_fetch_assoc($placesResult)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
-        a {
-            text-decoration:none;
-        }
-        .card-body {
-            color:#434f5b;
-            background-color: rgb(240,246,255);
-        }
-        footer {
-            text-align: center;
-        }
+      a{
+        text-decoration:none;
+      }
+      .card-body{
+        color:#434f5b;
+        background-color: #dbe6e2;
+      }
     </style>
 
 </head>
@@ -93,11 +102,15 @@ while ($place = mysqli_fetch_assoc($placesResult)) {
             foreach ($places as $place) {
             ?>
                 <div class="col-md-3 mb-4">
-                    <div class="card">
+                <div class="card">
+                <img src="./assets/<?php echo $place['pcImg']; ?>" class="card-img-top" alt="<?php echo $place['pc_name']; ?>" style="width: 100%; height: 200px;">
+        
+                    <div class="card-body">
                        
                         <h5 class="card-title"><?php echo $place['pc_name']; ?></h5>
                         <p class="card-text"><?php echo $place['disc']; ?></p>
                     </div>
+            </div>
                 </div>
             <?php
             }
@@ -105,7 +118,33 @@ while ($place = mysqli_fetch_assoc($placesResult)) {
         </div>
     </div>
 
-    <footer class="bg-dark text-white py-4" style="margin-top: 30px;">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-6 mt-4">
+                <div id="map" style="height: 350px;width: auto;"></div>
+            </div>
+            <div class="col-md-6 mt-4 p-3" style="background-color: rgb(219, 230, 226);border-radius: 10px;">
+    <h3>Nearby Tour Guides</h3>
+    <div class="row">
+        <?php
+        foreach ($guides as $guide) {
+        ?>
+            <div class="col-md-5 mb-3">
+                <strong><?php echo $guide['guide_name']; ?></strong><br>
+                Phone: <?php echo $guide['phone']; ?><br>
+                Email: <?php echo $guide['email']; ?>
+            </div>
+        <?php
+        }
+        ?>
+    </div>
+</div>
+        </div>
+    </div>
+    <h2 class="container mt-5">Comments</h2>
+    <div id="comments" class="container mt-4 p-3"style="background-color: rgb(219, 230, 226);border-radius: 10px;">
+    </div>
+    <footer class="bg-dark text-white py-4" style="margin-top: 30px;text-align: center;">
       <div class="container-fluid">
           <div class="row">
               <div class="col-md-6">
@@ -129,6 +168,70 @@ while ($place = mysqli_fetch_assoc($placesResult)) {
           </div>
       </div>
     </footer>
+   
+    <?php
+// Function to fetch locations based on p_id
+function getLocations($conn, $provinceId)
+{
+    $locations = [];
+    $result = mysqli_query($conn, "SELECT * FROM map WHERE p_id = $provinceId");
+    while ($row = mysqli_fetch_assoc($result)) {
+        $locations[] = [
+            'lat' => $row['lat'],
+            'lng' => $row['lng'],
+            'info' => $row['plcName'] . " (Place ID: {$row['p_id']})",
+        ];
+    }
+    return $locations;
+}
+
+// Fetch locations based on the province ID
+$locations = getLocations($con, $provinceId);
+?>
+    <script>
+function initMap() {
+    // Map options (centered on a specific Place)
+    const mapOptions = {
+        center: { lat: 6.929604339887076, lng: 79.85522487267703 }, // Example center point (Colombo, Sri Lanka)
+        zoom: 12, // zoom level
+    };
+
+    // Create a map 
+    const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    // Add markers 
+    const locationsData = <?php echo json_encode($locations); ?>;
+    console.log(locationsData); // the console for debugging
+
+    for (const location of locationsData) {
+        const lat = parseFloat(location.lat); 
+        const lng = parseFloat(location.lng); 
+
+        if (!isNaN(lat) && !isNaN(lng)) {
+            const marker = new google.maps.Marker({
+                position: { lat, lng },
+                map: map,
+                title: location.info,
+            });
+        } else {
+            console.error('Invalid latitude or longitude:', location);
+        }
+    }
+}
+
+// Ensure that the initMap function is called when the API is loaded
+function loadMapScript() {
+    const script = document.createElement("script");
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDnNPxaYAj-7FHjdLMpvhCxdVhQN7Dt0fc&callback=initMap";
+    script.defer = true;
+    document.body.appendChild(script);
+}
+
+// Load the map script
+loadMapScript();
+
+</script>
+      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </body>
