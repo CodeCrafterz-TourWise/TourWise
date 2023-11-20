@@ -127,12 +127,6 @@ include("../../includes/profile_update.php")
 
       <li class="nav-item">
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" href="#">
-          <i class="bi bi-journal-text"></i><span>User Management</span>
-        </a>
-      </li><!-- End Forms Nav -->
-
-      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" href="users-profile.php">
           <i class="bi bi-layout-text-window-reverse"></i><span>Profile</span>
         </a>

@@ -4,25 +4,22 @@ session_start(); // Starting Session
 $error = ''; // Variable To Store Error Message
 
 if (isset($_POST['submit'])) {
+    // Check if the username and password are provided
     if (empty($_POST['username']) || empty($_POST['password'])) {
         $error = "Username or Password is invalid";
     } else {
         include 'includes/config.php';
 
-        // Define $username and $password
-        $username = $_POST['username'];
+        // Sanitize and validate user input
+        $username = mysqli_real_escape_string($con, $_POST['username']);
         $enteredPassword = $_POST['password'];
 
-        // To protect MySQL injection for Security purpose
-        $username = stripslashes($username);
-        $enteredPassword = stripslashes($enteredPassword);
-        $username = mysqli_real_escape_string($con, $_POST['username']);
-
-        // Selecting Database
-        $sql = "SELECT * FROM users WHERE username='$username'";
-
-        // SQL query to fetch information of registered users and find user match.
-        $result = mysqli_query($con, $sql);
+        // Selecting Database using a prepared statement
+        $sql = "SELECT * FROM users WHERE username=?";
+        $stmt = mysqli_prepare($con, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
         if (!$result) {
             die('Error: ' . mysqli_error($con));
@@ -37,14 +34,14 @@ if (isset($_POST['submit'])) {
 
             // Verify entered password with stored hashed password
             if (password_verify($enteredPassword, $storedPassword)) {
+                // Set session and redirect based on user role
+                $_SESSION['login_user'] = $username; // Initializing Session
                 if ($userRole == 1) {
-                    // Admin dashboard
-                    $_SESSION['login_user'] = $username; // Initializing Session
                     header("location: dashboard/admin/index.php");
+                    exit();
                 } elseif ($userRole == 2) {
-                    // User dashboard
-                    $_SESSION['login_user'] = $username; // Initializing Session
                     header("location: dashboard/user/index.php");
+                    exit();
                 } else {
                     $error = "Invalid role";
                 }
@@ -55,7 +52,9 @@ if (isset($_POST['submit'])) {
             $error = "Username or Password is invalid";
         }
 
-        mysqli_close($con); // Closing Connection
+        // Closing Connection
+        mysqli_stmt_close($stmt);
+        mysqli_close($con);
     }
 }
 ?>

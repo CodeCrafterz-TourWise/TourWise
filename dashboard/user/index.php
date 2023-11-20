@@ -43,7 +43,7 @@ require_once('../../includes/sessions.php');
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Tour Wise - Admin Dashboard</span>
+        <span class="d-none d-lg-block">Tour Wise - User Dashboard</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -56,7 +56,7 @@ require_once('../../includes/sessions.php');
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo "$login_session"?></span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo"$login_session"?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -119,26 +119,15 @@ require_once('../../includes/sessions.php');
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
-      </li><!-- End Dashboard Nav -->
+      </li>
 
-      <li class="nav-item">
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>To-Do Management</span></i>
-        </a>
-      </li><!-- End Components Nav -->
-
-      </li><!-- End Components Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>User Management</span></i>
-        </a>
-      </li><!-- End Forms Nav -->
+      
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" href="users-profile.php">
           <i class="bi bi-layout-text-window-reverse"></i><span>Profile</span>
         </a>
+
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
