@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
                     header("location: dashboard/admin/index.php");
                     exit();
                 } elseif ($userRole == 2) {
-                    header("location: dashboard/user/index.php");
+                    header("location: index.php");
                     exit();
                 } else {
                     $error = "Invalid role";

@@ -18,19 +18,7 @@ $login_role = $row['role'];
 
 if (!isset($login_session)) {
     mysqli_close($con); // Closing Connection
-    header('Location: ../../login_page.php'); // Redirecting To Home Page
+    header('Location: index.php'); // Redirecting To Home Page
     exit(); // Make sure to exit after redirection to prevent further script execution
 }
-
-// Set time limit to 10 minutes (600 seconds) for session timeout
-$inactive = 600; // 10 minutes
-if (isset($_SESSION['timeout'])) {
-    $session_life = time() - $_SESSION['timeout'];
-    if ($session_life > $inactive) {
-        session_destroy(); // Destroy the session and redirect to the login page
-        header('Location: ../../login_page.php');
-        exit();
-    }
-}
-$_SESSION['timeout'] = time(); // Reset the session timeout on activity
 ?>

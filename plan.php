@@ -67,9 +67,24 @@
                 <a class="nav-link" href="todo.html">Todo</a>
               </li>
           </ul>
-          <div class="d-grid gap-2 d-md-block text-center">
-            <button class="btn btn-outline-light" type="button" onclick="window.location='login_page.php'"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</button>
-        </div>
+          <?php
+        session_start();
+
+        // Check if the user is logged in
+        if (isset($_SESSION['login_user'])) {
+          // If logged in, display the "User" button with the user's name
+          echo '<div>';
+          echo '<a href="dashboard/user/index.php"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
+          echo '<i class="fa fa-user" aria-hidden="true"></i> ' . $_SESSION['login_user'];
+          echo '</button></a>';
+          echo '</div>';
+        } else {
+          // If not logged in, display the "Sign In" button
+          echo '<div class="d-grid gap-2 d-md-block text-center">';
+          echo '<a href="login_page.php"><button class="btn btn-outline-light" type="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In </button></a>';
+          echo '</div>';
+        }
+        ?>
         </div>
       </div>
     </nav>
