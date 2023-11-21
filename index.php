@@ -63,10 +63,10 @@
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="plan.html">Plan your visit</a>
+            <a class="nav-link" href="plan.php">Plan your visit</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="todo.html">Todo</a>
+            <a class="nav-link" href="todo.php">Todo</a>
           </li>
         </ul>
         <?php

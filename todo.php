@@ -25,10 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav nav-pills nav-fill me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="plan.html">Plan your visit</a>
+              <a class="nav-link" href="plan.php">Plan your visit</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Todo</a>
@@ -54,8 +54,8 @@
               <div class="col-md-6">
                   <h4>Quick Links</h4>
                   <ul style="list-style-type: none;padding-inline-start: 0;">
-                      <li><a href="index.html">Home</a></li>
-                      <li><a href="plan.html">Plan your visit</a></li>
+                      <li><a href="index.php">Home</a></li>
+                      <li><a href="plan.php">Plan your visit</a></li>
                       <li><a href="#">Todo</a></li>
                   </ul>
               </div>
