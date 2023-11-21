@@ -70,16 +70,24 @@
           </li>
         </ul>
         <?php
-        session_start();
+        include('includes/config.php');
+        session_start(); // Starting Session
 
         // Check if the user is logged in
         if (isset($_SESSION['login_user'])) {
-          // If logged in, display the "User" button with the user's name
-          echo '<div>';
-          echo '<a href="dashboard/user/index.php"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
-          echo '<i class="fa fa-user" aria-hidden="true"></i> ' . $_SESSION['login_user'];
-          echo '</button></a>';
-          echo '</div>';
+           // Storing Session
+        $user_check = $_SESSION['login_user'];
+        
+        // SQL Query To Fetch Complete Information Of User
+        $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
+        $row = mysqli_fetch_assoc($ses_sql);
+        $login_session = $row['name'];
+        // If logged in, display the "User" button with the user's name
+        echo '<div>';
+        echo '<a href="dashboard/user/users-profile.php"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
+        echo '<i class="fa fa-user" aria-hidden="true"></i> ' . $login_session;
+        echo '</button></a>';
+        echo '</div>';
         } else {
           // If not logged in, display the "Sign In" button
           echo '<div class="d-grid gap-2 d-md-block text-center">';

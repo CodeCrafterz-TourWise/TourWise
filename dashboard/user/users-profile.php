@@ -1,9 +1,5 @@
 <?php
-include('../../includes/config.php');
-include('../../includes/sessions.php');
-
 include("../../includes/profile_update.php")
-
 
 ?>
 
@@ -58,8 +54,6 @@ include("../../includes/profile_update.php")
 
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
-
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
@@ -68,36 +62,6 @@ include("../../includes/profile_update.php")
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../../logout.php">
                 <i class="bi bi-box-arrow-right"></i>
@@ -118,33 +82,20 @@ include("../../includes/profile_update.php")
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link " href="index.html">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
+      <!-- End Dashboard Nav -->
 
       <li class="nav-item">
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" href="users-profile.php">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Profile</span>
         </a>
-
-
+      </li>
+    </ul>
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
 
     <div class="pagetitle">
       <h1>Profile</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Profile</li>
-        </ol>
-      </nav>
     </div><!-- End Page Title -->
 
     <section class="section profile">
@@ -238,10 +189,6 @@ include("../../includes/profile_update.php")
                     </div>
                   </div>
                 </div>
-
-
-
-
 
               </div><!-- End Bordered Tabs -->
 
