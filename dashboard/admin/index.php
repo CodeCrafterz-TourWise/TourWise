@@ -63,37 +63,6 @@ require_once('../../includes/sessions.php');
             <li>
               <hr class="dropdown-divider">
             </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../../logout.php">
                 <i class="bi bi-box-arrow-right"></i>
@@ -115,46 +84,23 @@ require_once('../../includes/sessions.php');
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="#">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-
-      <li class="nav-item">
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>To-Do Management</span></i>
-        </a>
-      </li><!-- End Components Nav -->
-
-      </li><!-- End Components Nav -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>User Management</span></i>
-        </a>
-      </li><!-- End Forms Nav -->
-
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" href="users-profile.php">
           <i class="bi bi-layout-text-window-reverse"></i><span>Profile</span>
         </a>
+      </li>
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
     </div><!-- End Page Title -->
-
-    
-
   </main><!-- End #main -->
 
   
