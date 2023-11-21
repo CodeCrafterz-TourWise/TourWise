@@ -25,13 +25,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav nav-pills nav-fill me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="plan.html">Plan your visit</a>
+              <a class="nav-link" href="plan.php">Plan your visit</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Todo</a>
+                <a class="nav-link active" aria-current="page" href="todo.php">Todo</a>
               </li>
           </ul>
           <div class="d-grid gap-2 d-md-block text-center">
