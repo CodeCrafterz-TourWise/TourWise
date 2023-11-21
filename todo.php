@@ -55,7 +55,7 @@ include 'includes/sessions.php';
             <a class="nav-link" href="plan.php">Plan your visit</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="todo.php">Todo</a>
+            <a class="nav-link active" aria-current="page" href="#">Todo</a>
           </li>
         </ul>
         <?php
