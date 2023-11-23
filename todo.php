@@ -1,5 +1,4 @@
 <?php
-include 'includes/config.php';
 include 'includes/sessions.php';
 ?>
 <!DOCTYPE html>
@@ -13,11 +12,6 @@ include 'includes/sessions.php';
   <link href="assets/img/logo.png" rel="apple-touch-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    a {
-      text-decoration: none;
-    }
-  </style>
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/logo.png" rel="apple-touch-icon">
@@ -36,7 +30,6 @@ include 'includes/sessions.php';
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <link href="assets/css/style.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -59,7 +52,6 @@ include 'includes/sessions.php';
           </li>
         </ul>
         <?php
-        require_once('includes/config.php');
 
         // Check if the user is logged in
         if (isset($_SESSION['login_user'])) {
@@ -98,31 +90,37 @@ include 'includes/sessions.php';
             </div>
             <button type="submit" class="btn btn-primary">Add Task</button>
           </form>
+
           <div class="container py-5">
             <?php
-            // Display tasks from the database
-            include "includes/config.php";
-            // Retrieve tasks from the database
             $sql = "SELECT * FROM todos";
             echo "<div class='container'>";
 
-
-            echo "<table class='table datatable 'style='margin-bottom: 20px;'>";
-            echo "<h2><caption>Tasks</caption></h2>";
-
+            echo "<table class='table datatable' style='margin-bottom: 20px;'>";
             echo "<thead>";
             echo "<tr><th scope='col'>Tasks</th>";
             echo "<th scope='col'>Edit</th>";
             echo "<th scope='col'>Delete</th>";
             echo "</thead>";
-        
 
             $result = $con->query($sql);
             if ($result->num_rows > 0) {
               while ($row = mysqli_fetch_array($result)) {
+                $taskId = $row["id"];
                 echo "<tr><td>" . $row["task"] . "</td>";
-                echo "<td><div class='icon'></div><i class='bi bi-pencil-square'></i></td>";
-                echo "<td><div class='icon'></div><i class='bi bi-trash-fill'></i></td></tr>";
+                echo "<td><button class='btn btn-primary edit-btn' data-task-id='$taskId'><i class='bi bi-pencil-square'></i> Edit</button></td>";
+                echo "<td><button class='btn btn-danger delete-btn' data-task-id='$taskId'><i class='bi bi-trash-fill'></i> Delete</button></td></tr>";
+
+                echo "<tr class='edit-form-row' id='edit-form-row-$taskId' style='display:none;'><td colspan='3'>";
+                echo "<form method='post' action='todo_edit.php'>";
+                echo "<input type='hidden' name='task_id' value='$taskId'>";
+                echo "<div class='mb-3'>";
+                echo "<label for='edited_task' class='form-label'>Edit Task:</label>";
+                echo "<input type='text' class='form-control' id='edited_task' name='edited_task' value='" . $row["task"] . "' required>";
+                echo "</div>";
+                echo "<button type='submit' name='update' class='btn btn-success'>Update Task</button>";
+                echo "</form>";
+                echo "</td></tr>";
               }
             } else {
               echo "No tasks found.";
@@ -131,11 +129,7 @@ include 'includes/sessions.php';
           </div>
         </div>
       </section>
-
-
     </div>
-
-
   </main>
 
 
@@ -168,6 +162,82 @@ include 'includes/sessions.php';
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Add event listener for edit button clicks
+    const editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const taskId = this.getAttribute('data-task-id');
+        // Hide all edit forms
+        document.querySelectorAll('.edit-form-row').forEach(row => {
+          row.style.display = 'none';
+        });
+        // Show the edit form for the clicked task
+        const editFormRow = document.getElementById('edit-form-row-' + taskId);
+        editFormRow.style.display = 'table-row';
+      });
+    });
+
+    // Add event listener for delete button clicks
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+    deleteButtons.forEach(button => {
+      button.addEventListener('click', async function () {
+        const taskId = this.getAttribute('data-task-id');
+
+        // Show a confirmation dialog
+        const result = await Swal.fire({
+          title: 'Are you sure?',
+          text: 'You won\'t be able to revert this!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!',
+        });
+
+        if (result.value) {
+          try {
+            // If the user clicks "Yes", proceed with the deletion
+            const response = await fetch('delete_task.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: 'task_id=' + taskId,
+            });
+
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+
+            // Handle the response
+            console.log(data);
+
+            // Show success message
+            Swal.fire({
+              title: 'Deleted!',
+              text: 'Your task has been deleted.',
+              icon: 'success',
+              showCancelButton: false,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Ok!',
+            });
+
+            // Reload the page after successful deletion
+            location.reload();
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        }
+      });
+    });
+  });
+</script>
 
 </body>
 
