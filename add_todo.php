@@ -2,16 +2,21 @@
 include("includes/sessions.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+   // Assuming $con is your database connection
+    $stmt = $con->prepare("INSERT INTO todos (task, u_id) VALUES (?, ?)");
+    $stmt->bind_param("si", $task, $login_id);
+
     $task = $_POST["task"];
 
-    // Insert the task into the database
-    $sql = "INSERT INTO todos (task,u_id) VALUES ('$task',$login_id)";
-
-    if ($con->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         header("Location: todo.php");
-        exit(); // Make sure to exit after a header redirect
+        exit();
     } else {
-        echo "Error: " . $sql . "<br>" . $con->error;
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
+
 }
 ?>

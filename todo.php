@@ -90,57 +90,61 @@
 
   <main>
     <div class="container py-5 py-5">
-      <section class="section register min-vh-100 d-flex py-4">
-        <div class="container">
-          <form method="post" action="add_todo.php">
-            <div class="mb-3">
-              <label for="task" class="form-label">New Task:</label>
-              <input type="text" class="form-control" id="task" name="task" required>
+        <section class="section register min-vh-100 d-flex py-4">
+            <div class="container">
+                <!-- Form for adding a new task -->
+                <form method="post" action="add_todo.php">
+                    <div class="mb-3">
+                        <label for="task" class="form-label">New Task:</label>
+                        <input type="text" class="form-control" id="task" name="task" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </form>
+
+                <!-- Display tasks from the database -->
+                <div class="container py-5">
+                    <?php
+                    // checks user
+                    include "includes/config.php";
+
+                    // Storing Session
+                    $user_check = $_SESSION['login_user'];
+
+                    // SQL Query To Fetch Complete Information Of User
+                    $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
+                    $row = mysqli_fetch_assoc($ses_sql);
+                    $login_id = $row['user_id'];
+
+                    // Retrieve tasks from the database
+                    $sql = "SELECT * FROM todos where u_id=$login_id";
+                    echo "<div class='container'>";
+
+                    echo "<table class='table datatable' style='margin-bottom: 20px;'>";
+                    echo "<thead>";
+                    echo "<tr><th scope='col'>Tasks</th>";
+                    echo "<th scope='col'>Edit</th>";
+                    echo "<th scope='col'>Delete</th></tr>";
+                    echo "</thead>";
+
+                    $result = $con->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo "<tr><td>" . $row["task"] . "</td>";
+                            echo "<td><div class='icon'></div><i class='bi bi-pencil-square'></i></td>";
+                            echo "<td><div class='icon'></div><i class='bi bi-trash-fill'></i></td></tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='3'>No tasks found.</td></tr>";
+                    }
+
+                    // Close the table
+                    echo "</table>";
+                    ?>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Add Task</button>
-          </form>
-          <div class="container py-5">
-            <?php
-            // Display tasks from the database
-            include "includes/config.php";
-            // Storing Session
-            $user_check = $_SESSION['login_user'];
-            
-            // SQL Query To Fetch Complete Information Of User
-            $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
-            $row = mysqli_fetch_assoc($ses_sql);
-            $login_id = $row['user_id'];
-            // Retrieve tasks from the database
-            $sql = "SELECT * FROM todos where u_id=$login_id";
-            echo "<div class='container'>";
-
-
-            echo "<table class='table datatable 'style='margin-bottom: 20px;'>";
-            echo "<thead>";
-            echo "<tr><th scope='col'>Tasks</th>";
-            echo "<th scope='col'>Edit</th>";
-            echo "<th scope='col'>Delete</th>";
-            echo "</thead>";
-        
-
-            $result = $con->query($sql);
-            if ($result->num_rows > 0) {
-              while ($row = mysqli_fetch_array($result)) {
-                echo "<tr><td>" . $row["task"] . "</td>";
-                echo "<td><div class='icon'></div><i class='bi bi-pencil-square'></i></td>";
-                echo "<td><div class='icon'></div><i class='bi bi-trash-fill'></i></td></tr>";
-              }
-            } else {
-              echo "No tasks found.";
-            }
-            ?>
-          </div>
-        </div>
-      </section>
+        </section>
     </div>
   </main>
-
-
 
 
   <footer class="bg-dark text-white py-4 fixed-bottom" style="margin-top: 30px;text-align: center;">
