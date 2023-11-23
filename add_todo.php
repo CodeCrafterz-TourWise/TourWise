@@ -4,7 +4,7 @@ include("includes/sessions.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    // Assuming $con is your database connection
-    $stmt = $con->prepare("INSERT INTO todos (task, u_id) VALUES (?, ?)");
+    $stmt = $con->prepare("INSERT INTO todos (task, user_id) VALUES (?, ?)");
     $stmt->bind_param("si", $task, $login_id);
 
     $task = $_POST["task"];
