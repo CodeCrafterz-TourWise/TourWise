@@ -70,32 +70,36 @@
           </li>
         </ul>
         <?php
-        include('includes/config.php');
-        session_start(); // Starting Session
+          include('includes/config.php');
+          session_start(); // Starting Session
 
-        // Check if the user is logged in
-        if (isset($_SESSION['login_user'])) {
-           // Storing Session
-        $user_check = $_SESSION['login_user'];
-        
-        // SQL Query To Fetch Complete Information Of User
-        $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
-        $row = mysqli_fetch_assoc($ses_sql);
-        $login_session = $row['name'];
-        // If logged in, display the "User" button with the user's name
-        echo '<div>';
-        echo '<a href="dashboard/user/users-profile.php"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
-        echo '<i class="fa fa-user" aria-hidden="true"></i> ' . $login_session;
-        echo '</button></a>';
-        echo '</div>';
-        } else {
-          // If not logged in, display the "Sign In" button
-          echo '<div class="d-grid gap-2 d-md-block text-center">';
-          echo '<a href="login_page.php"><button class="btn btn-outline-light" type="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In </button></a>';
-          echo '</div>';
-        }
-        ?>
+          // Check if the user is logged in
+          if (isset($_SESSION['login_user'])) {
+              // Storing Session
+              $user_check = $_SESSION['login_user'];
 
+              // SQL Query To Fetch Complete Information Of User
+              $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
+              $row = mysqli_fetch_assoc($ses_sql);
+              $login_session = $row['name'];
+              $user_role = $row['role'];
+
+              // If user role is 1 (admin), set the dashboard link accordingly
+              $dashboardLink = ($user_role == 1) ? 'dashboard/admin/index.php' : 'dashboard/user/users-profile.php';
+
+              // Display the "User" button with the appropriate href
+              echo '<div>';
+              echo '<a href="' . $dashboardLink . '"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
+              echo '<i class="fa fa-user" aria-hidden="true"></i> ' . $login_session;
+              echo '</button></a>';
+              echo '</div>';
+          } else {
+              // If not logged in, display the "Sign In" button
+              echo '<div class="d-grid gap-2 d-md-block text-center">';
+              echo '<a href="login_page.php"><button class="btn btn-outline-light" type="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In </button></a>';
+              echo '</div>';
+          }
+          ?>
       </div>
     </div>
   </nav>
