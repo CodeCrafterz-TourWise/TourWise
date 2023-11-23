@@ -61,6 +61,12 @@ require_once('../../includes/sessions.php');
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li>
+              <a class="dropdown-item d-flex align-items-center" href="../../index.php">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
               <hr class="dropdown-divider">
             </li>
             <li>

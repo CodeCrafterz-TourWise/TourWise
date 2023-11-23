@@ -65,6 +65,12 @@ include("../../includes/profile_update.php")
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li>
+              <a class="dropdown-item d-flex align-items-center" href="../../index.php">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+              </a>
+            </li>
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../../logout.php">
                 <i class="bi bi-box-arrow-right"></i>
@@ -86,7 +92,7 @@ include("../../includes/profile_update.php")
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.php">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -94,7 +100,7 @@ include("../../includes/profile_update.php")
       <!-- End Forms Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" href="#">
+        <a class="nav-link" data-bs-target="#tables-nav" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Profile</span>
         </a>
       </li>

@@ -85,7 +85,7 @@ include("../../includes/profile_update.php")
       <!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" href="#">
+        <a class="nav-link" data-bs-target="#tables-nav" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Profile</span>
         </a>
       </li>
