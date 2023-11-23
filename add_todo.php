@@ -1,5 +1,4 @@
 <?php
-include("includes/config.php");
 include("includes/sessions.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
