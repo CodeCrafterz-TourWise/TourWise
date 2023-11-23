@@ -65,6 +65,12 @@ include("../../includes/profile_update.php")
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li>
+              <a class="dropdown-item d-flex align-items-center" href="../../index.php">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+              </a>
+            </li>
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../../logout.php">
                 <i class="bi bi-box-arrow-right"></i>

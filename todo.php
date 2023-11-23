@@ -67,10 +67,14 @@
             $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
             $row = mysqli_fetch_assoc($ses_sql);
             $login_session = $row['name'];
-  
-            // If logged in, display the "User" button with the user's name
+            $user_role = $row['role'];
+
+            // If user role is 1 (admin), set the dashboard link accordingly
+            $dashboardLink = ($user_role == 1) ? 'dashboard/admin/index.php' : 'dashboard/user/users-profile.php';
+
+            // Display the "User" button with the appropriate href
             echo '<div>';
-            echo '<a href="dashboard/user/users-profile.php"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
+            echo '<a href="' . $dashboardLink . '"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
             echo '<i class="fa fa-user" aria-hidden="true"></i> ' . $login_session;
             echo '</button></a>';
             echo '</div>';
