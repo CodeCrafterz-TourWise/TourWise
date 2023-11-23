@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $task = $_POST["task"];
 
     // Insert the task into the database
-    $sql = "INSERT INTO todos (task) VALUES ('$task')";
+    $sql = "INSERT INTO todos (task,u_id) VALUES ('$task',$login_id)";
 
     if ($con->query($sql) === TRUE) {
         header("Location: todo.php");

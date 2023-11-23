@@ -99,14 +99,19 @@
             <?php
             // Display tasks from the database
             include "includes/config.php";
+            // Storing Session
+            $user_check = $_SESSION['login_user'];
+            
+            // SQL Query To Fetch Complete Information Of User
+            $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
+            $row = mysqli_fetch_assoc($ses_sql);
+            $login_id = $row['user_id'];
             // Retrieve tasks from the database
-            $sql = "SELECT * FROM todos";
+            $sql = "SELECT * FROM todos where u_id=$login_id";
             echo "<div class='container'>";
 
 
             echo "<table class='table datatable 'style='margin-bottom: 20px;'>";
-            echo "<h2><caption>Tasks</caption></h2>";
-
             echo "<thead>";
             echo "<tr><th scope='col'>Tasks</th>";
             echo "<th scope='col'>Edit</th>";
@@ -128,11 +133,7 @@
           </div>
         </div>
       </section>
-
-
     </div>
-
-
   </main>
 
 
