@@ -84,10 +84,9 @@
   </nav>
 
   <main>
-    <div class="container py-5 py-5">
+    <div class="container py-5">
       <section class="section register min-vh-100 d-flex py-4">
         <div class="container">
-          <!-- Form for adding a new task -->
           <form method="post" action="add_todo.php">
             <div class="mb-3">
               <label for="task" class="form-label">New Task:</label>
@@ -95,32 +94,30 @@
             </div>
             <button type="submit" class="btn btn-primary">Add Task</button>
           </form>
-
-          <!-- Display tasks from the database -->
           <div class="container py-5">
             <?php
-            // checks user
+            // Display tasks from the database
             include "includes/config.php";
-
             // Storing Session
             $user_check = $_SESSION['login_user'];
-
+            
             // SQL Query To Fetch Complete Information Of User
             $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
             $row = mysqli_fetch_assoc($ses_sql);
             $login_id = $row['user_id'];
-
             // Retrieve tasks from the database
-            $sql = "SELECT * FROM todos where user_id=$login_id";
+            $sql = "SELECT * FROM todos where u_id=$login_id";
             echo "<div class='container'>";
 
-            echo "<table class='table datatable' style='margin-bottom: 20px;'>";
+            echo "<table class='table datatable'style='margin-bottom: 20px;'>";
+            // echo "<h2><caption>Tasks</caption></h2>";
+
             echo "<thead>";
             echo "<tr><th scope='col'>Tasks</th>";
             echo "<th scope='col'>Edit</th>";
             echo "<th scope='col'>Delete</th></tr>";
             echo "</thead>";
-
+        
             $result = $con->query($sql);
             if ($result->num_rows > 0) {
               while ($row = mysqli_fetch_array($result)) {
@@ -145,53 +142,16 @@
 
             // Close the table
             echo "</table>";
+            echo "</div>";
             ?>
           </div>
         </div>
-
-        <div class="container py-5">
-          <?php
-          // $sql = "SELECT * FROM todos";
-          // echo "<div class='container'>";
-
-          // echo "<table class='table datatable' style='margin-bottom: 20px;'>";
-          // echo "<thead>";
-          // echo "<tr><th scope='col'>Tasks</th>";
-          // echo "<th scope='col'>Edit</th>";
-          // echo "<th scope='col'>Delete</th>";
-          // echo "</thead>";
-
-          // $result = $con->query($sql);
-          // if ($result->num_rows > 0) {
-          //   while ($row = mysqli_fetch_array($result)) {
-          //     $taskId = $row["id"];
-          //     echo "<tr><td>" . $row["task"] . "</td>";
-          //     echo "<td><button class='btn btn-primary edit-btn' data-task-id='$taskId'><i class='bi bi-pencil-square'></i> Edit</button></td>";
-          //     echo "<td><button class='btn btn-danger delete-btn' data-task-id='$taskId'><i class='bi bi-trash-fill'></i> Delete</button></td></tr>";
-
-          //     echo "<tr class='edit-form-row' id='edit-form-row-$taskId' style='display:none;'><td colspan='3'>";
-          //     echo "<form method='post' action='todo_edit.php'>";
-          //     echo "<input type='hidden' name='task_id' value='$taskId'>";
-          //     echo "<div class='mb-3'>";
-          //     echo "<label for='edited_task' class='form-label'>Edit Task:</label>";
-          //     echo "<input type='text' class='form-control' id='edited_task' name='edited_task' value='" . $row["task"] . "' required>";
-          //     echo "</div>";
-          //     echo "<button type='submit' name='update' class='btn btn-success'>Update Task</button>";
-          //     echo "</form>";
-          //     echo "</td></tr>";
-          //   }
-          // } else {
-          //   echo "No tasks found.";
-          // }
-          ?>
-        </div>
-    </div>
-    </section>
+      </section>
     </div>
   </main>
 
 
-  <footer class="bg-dark text-white py-4 fixed-bottom" style="margin-top: 30px;text-align: center;">
+  <footer class="bg-dark text-white py-4 sticky-bottom mt-5 text-center">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
