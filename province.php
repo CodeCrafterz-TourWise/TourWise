@@ -195,7 +195,7 @@ function initMap() {
     // Map options (centered on a specific Place)
     const mapOptions = {
         center: { lat: 6.929604339887076, lng: 79.85522487267703 }, // Example center point (Colombo, Sri Lanka)
-        zoom: 12, // zoom level
+        zoom: 6, // zoom level
     };
 
     // Create a map 
