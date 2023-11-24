@@ -53,10 +53,12 @@ while ($guide = mysqli_fetch_assoc($guidesResult)) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $provinceData['p_name']; ?> Province</title>
+    <link href="assets/img/logo.png" rel="icon">
+    <link href="assets/img/logo.png" rel="apple-touch-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <style>
+
+<style>
       a{
         text-decoration:none;
       }
@@ -124,21 +126,21 @@ while ($guide = mysqli_fetch_assoc($guidesResult)) {
                 <div id="map" style="height: 350px;width: auto;"></div>
             </div>
             <div class="col-md-6 mt-4 p-3" style="background-color: rgb(219, 230, 226);border-radius: 10px;">
-    <h3>Nearby Tour Guides</h3>
-    <div class="row">
-        <?php
-        foreach ($guides as $guide) {
-        ?>
-            <div class="col-md-5 mb-3">
-                <strong><?php echo $guide['guide_name']; ?></strong><br>
-                Phone: <?php echo $guide['phone']; ?><br>
-                Email: <?php echo $guide['email']; ?>
+                <h3>Nearby Tour Guides</h3>
+                <div class="row">
+                    <?php
+                    foreach ($guides as $guide) {
+                    ?>
+                        <div class="col-md-5 mb-3">
+                            <strong><?php echo $guide['guide_name']; ?></strong><br>
+                            Phone: <?php echo $guide['phone']; ?><br>
+                            Email: <?php echo $guide['email']; ?>
+                        </div>
+                    <?php
+                    }
+                    ?>
+                </div>
             </div>
-        <?php
-        }
-        ?>
-    </div>
-</div>
         </div>
     </div>
     <h2 class="container mt-5">Comments</h2>
