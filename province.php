@@ -165,7 +165,7 @@
     <h2 class="container mt-5">Comments</h2>
     <div id="comments" class="container mt-4 p-3"style="background-color: rgb(219, 230, 226);border-radius: 10px;">
     </div>
-    <footer class="bg-dark text-white py-4" style="margin-top: 30px;text-align: center;">
+    <footer class="bg-dark text-white py-4 mt-5 text-center">
       <div class="container-fluid">
           <div class="row">
               <div class="col-md-6">
