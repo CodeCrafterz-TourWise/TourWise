@@ -3,7 +3,7 @@ $hostname = 'localhost';
  // Specify the correct port number here if not remove it. 
 $username = 'root';
 $password = '';
-$database = 'undergraduate_db';
+$database = 'tourwise';
 
 $con = mysqli_connect($hostname, $username, $password, $database);
 
