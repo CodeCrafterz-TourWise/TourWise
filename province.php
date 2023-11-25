@@ -5,7 +5,7 @@
         $provinceId = $_GET['id'];
     }
 
-    // retrieved the province 
+    // retrieve the province 
     $query = "SELECT * FROM province WHERE p_id = $provinceId";
     $result = mysqli_query($con, $query);
 
@@ -214,7 +214,7 @@
         function initMap() {
         // Map options (centered on a specific Place)
         const mapOptions = {
-            center: { lat: 6.929604339887076, lng: 79.85522487267703 }, // Example center point (Colombo, Sri Lanka)
+            center: { lat: 7.789974956093105, lng: 80.68075651949748 }, // Example center point
             zoom: 7, // zoom level
         };      
 
