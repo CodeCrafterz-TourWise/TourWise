@@ -221,7 +221,7 @@
             </div>
         </div>
         <div>
-          <p>&copy; 2023 Designed By <i>CODE CRAFTERZ</i></p>
+          <p>&copy; 2023 Designed By <a href="https://github.com/CodeCrafterz-TourWise"><i>CODE CRAFTERZ</i></a></p>
         </div>
     </div>
   </footer>
