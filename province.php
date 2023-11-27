@@ -26,8 +26,6 @@
         $places[] = $place;
     }
 
-
-
     // Retrieve nearby tour guides
     $guideQuery = "SELECT * FROM tour_guides WHERE p_id = $provinceId";
     $guidesResult = mysqli_query($con, $guideQuery);
@@ -36,6 +34,15 @@
     $guides = [];
     while ($guide = mysqli_fetch_assoc($guidesResult)) {
         $guides[] = $guide;
+    }
+    // Retrieve comments
+    $commentsQuery = "SELECT * FROM comments WHERE pro_id = $provinceId";
+    $commentsResult = mysqli_query($con, $commentsQuery);
+
+    // Fetch the comments data
+    $comments = [];
+    while ($comment = mysqli_fetch_assoc($commentsResult)) {
+        $comments[] = $comment;
     }
 
 ?>
@@ -164,23 +171,48 @@
             </div>
         </div>
     </div>
+    <!--comment section-->
     <h2 class="container mt-5">Share your feedbacks about your travel experience</h2>
 
     <div id="comments" class="container mt-4 p-3" style="background-color: rgb(219, 230, 226); border-radius: 10px;">
-        <form id="commentForm">
+        <form id="commentForm" action="save_comment.php?id=<?php echo $provinceId; ?>" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-            <label for="commentText" class="form-label">Comment here (Max 170 characters):</label>
-            <textarea class="form-control" id="commentText" rows="3" maxlength="170" required></textarea>
+                <label for="commentText" class="form-label">Comment here (Max 170 characters):</label>
+                <textarea class="form-control" id="commentText" name="commentText" rows="3" maxlength="170" required></textarea>
             </div>
 
             <div class="mb-3">
-            <label for="commentImage" class="form-label">Image (Upload from device):</label>
-            <input type="file" class="form-control" id="commentImage" required>
+                <label for="commentImage" class="form-label">Image (Upload from device):</label>
+                <input type="file" class="form-control" id="commentImage" name="commentImage" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Post Comment</button>
         </form>
-        <h2 class="mt-3">Comments</h2>
+    </div>
+
+    <!-- Display comments -->
+    <div class="container mt-5 p-3" style="background-color: rgb(219, 230, 226); border-radius: 10px;">
+        <h2>Comments</h2>
+        <div class="row">
+            <?php
+            foreach ($comments as $comment) {
+            ?>
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text"><?php echo $comment['c_text']; ?></p>
+                            <?php
+                            if (!empty($comment['c_image'])) {
+                                echo '<img src="' . $comment['c_image'] . '" class="img-fluid" alt="Comment Image">';
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+        </div>
     </div>
 
     <footer class="bg-dark text-white py-4 mt-5 text-center">
