@@ -1,6 +1,6 @@
 <?php
-require_once('../../includes/sessions.php');
-session_start();
+  require_once('../../includes/sessions.php');
+
 ?>
 
 <!DOCTYPE html>

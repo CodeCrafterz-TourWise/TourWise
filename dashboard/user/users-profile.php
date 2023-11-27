@@ -1,8 +1,5 @@
 <?php
-include("../../includes/profile_update.php");
-require_once('../../includes/sessions.php');
-session_start();
-
+  include("../../includes/profile_update.php");
 ?>
 
 
