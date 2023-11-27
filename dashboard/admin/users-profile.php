@@ -2,13 +2,6 @@
 include("../../includes/profile_update.php");
 require_once('../../includes/sessions.php');
 session_start();
-
-if (!isset($_SESSION['user_id'])) {
-  // Redirect to the login page
-  header("Location: ../../login_page.php");
-  exit();
-}
-
 ?>
 
 

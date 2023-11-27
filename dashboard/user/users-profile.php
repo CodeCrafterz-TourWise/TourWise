@@ -3,11 +3,6 @@ include("../../includes/profile_update.php");
 require_once('../../includes/sessions.php');
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-  // Redirect to the login page
-  header("Location: ../../login_page.php");
-  exit();
-}
 ?>
 
 
@@ -64,8 +59,8 @@ if (!isset($_SESSION['user_id'])) {
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          <i class="bi bi-person-circle"></i>
-          <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo "$login_session" ?></span>
+            <i class="bi bi-person-circle"></i>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo "$login_session" ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

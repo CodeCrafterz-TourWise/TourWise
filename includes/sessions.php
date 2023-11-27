@@ -16,5 +16,10 @@ $login_username = $row['username'];
 $login_password = $row['password'];
 $login_role = $row['role'];
 
-
+//check the login session, if not logged in redirect to login page
+if (!isset($login_session)) {
+    mysqli_close($con); // Closing Connection
+    header("Location: ../../login_page.php");
+    exit();
+}
 ?>
