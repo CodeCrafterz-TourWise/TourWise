@@ -1,6 +1,22 @@
 <?php
 require_once('../../includes/sessions.php');
-session_start();
+
+// Fetch total users
+$totalAdminQuery = mysqli_query($con, "SELECT COUNT(*) AS totalAdmin FROM users WHERE role='1'");
+$totalAdminRow = mysqli_fetch_assoc($totalAdminQuery);
+$totalAdmin = $totalAdminRow['totalAdmin'];
+
+$totalUsersQuery = mysqli_query($con, "SELECT COUNT(*) AS totalUsers FROM users WHERE role='2'");
+$totalUsersRow = mysqli_fetch_assoc($totalUsersQuery);
+$totalUsers = $totalUsersRow['totalUsers'];
+
+// Fetch all user names
+$allUsersQuery = mysqli_query($con, "SELECT name FROM users");
+$allUserNames = array();
+
+while ($userRow = mysqli_fetch_assoc($allUsersQuery)) {
+    $allUserNames[] = $userRow['name'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +26,7 @@ session_start();
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>UserPanel- TourWise</title>
+  <title>AdminPanel- TourWise</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -42,7 +58,7 @@ session_start();
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">Tour Wise - User Dashboard</span>
+        <span class="d-none d-lg-block">Tour Wise</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -54,45 +70,20 @@ session_start();
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <i class="bi bi-person-circle"></i>
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo "$login_session" ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
+              <a class="dropdown-item d-flex align-items-center" href="../../index.php">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
               </a>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
             <li>
               <a class="dropdown-item d-flex align-items-center" href="../../logout.php">
                 <i class="bi bi-box-arrow-right"></i>
@@ -114,35 +105,59 @@ session_start();
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
+      </li><!-- End Dashboard Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" href="user_management.php">
+          <i class="bi bi-layout-text-window-reverse"></i><span>User Management</span>
+        </a>
       </li>
-
-
-
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" href="users-profile.php">
           <i class="bi bi-layout-text-window-reverse"></i><span>Profile</span>
         </a>
-
+      </li>
   </aside><!-- End Sidebar-->
 
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-      </nav>
+      <h1>User Management</h1>
     </div><!-- End Page Title -->
 
-
-
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Admin</h5>
+            <p class="card-text"><?php echo $totalAdmin; ?></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Total Users</h5>
+            <p class="card-text"><?php echo $totalUsers; ?></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">All User Names</h5>
+            <ul>
+              <?php foreach ($allUserNames as $userName) : ?>
+                <li><?php echo $userName; ?></li>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+        </div>
+    </div>
   </main><!-- End #main -->
 
 

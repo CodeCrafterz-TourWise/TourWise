@@ -1,5 +1,7 @@
 <?php
 include("../../includes/profile_update.php");
+require_once('../../includes/sessions.php');
+session_start();
 ?>
 
 
@@ -95,8 +97,11 @@ include("../../includes/profile_update.php");
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
-      <!-- End Forms Nav -->
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" href="user_management.php">
+          <i class="bi bi-layout-text-window-reverse"></i><span>User Management</span>
+        </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" data-bs-target="#tables-nav" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Profile</span>
