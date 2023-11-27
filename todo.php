@@ -104,7 +104,7 @@
             // SQL Query To Fetch Complete Information Of User
             $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
             $row = mysqli_fetch_assoc($ses_sql);
-            $login_id = $row['user_id'];
+            $login_id = $row['u_id'];
             // Retrieve tasks from the database
             $sql = "SELECT * FROM todos where u_id=$login_id";
             echo "<div class='container'>";
