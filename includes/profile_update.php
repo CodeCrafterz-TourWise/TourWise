@@ -11,7 +11,7 @@ if (isset($_POST['update'])) {
     $username = $_POST['username'];
 
     // Update Information in the database with a WHERE clause
-    $sql = "UPDATE users SET name='$name', email='$email', username='$username' WHERE u_id='$login_id'";
+    $sql = "UPDATE users SET name='$name', email='$email', username='$username' WHERE user_id='$login_id'";
     $result = mysqli_query($con, $sql);
 
     if ($result) {

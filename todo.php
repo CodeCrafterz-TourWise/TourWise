@@ -100,11 +100,11 @@
             include "includes/config.php";
             // Storing Session
             $user_check = $_SESSION['login_user'];
-            
+
             // SQL Query To Fetch Complete Information Of User
             $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
             $row = mysqli_fetch_assoc($ses_sql);
-            $login_id = $row['u_id'];
+            $login_id = $row['user_id'];
             // Retrieve tasks from the database
             $sql = "SELECT * FROM todos where u_id=$login_id";
             echo "<div class='container'>";
@@ -117,7 +117,7 @@
             echo "<th scope='col'>Edit</th>";
             echo "<th scope='col'>Delete</th></tr>";
             echo "</thead>";
-        
+
             $result = $con->query($sql);
             if ($result->num_rows > 0) {
               while ($row = mysqli_fetch_array($result)) {
@@ -245,7 +245,10 @@
               });
 
               // Reload the page after successful deletion
-              location.reload();
+              setTimeout(() => {
+                // Reload the page after successful deletion
+                location.reload();
+              }, 5000);
             } catch (error) {
               console.error('Error:', error);
             }
