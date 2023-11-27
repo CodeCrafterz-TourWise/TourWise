@@ -59,6 +59,9 @@
         color:#434f5b;
         background-color: #dbe6e2;
       }
+      h2{
+        color:#434f5b;
+      }
     </style>
 
 </head>
@@ -127,11 +130,10 @@
                 <img src="./assets/<?php echo $place['pcImg']; ?>" class="card-img-top" alt="<?php echo $place['pc_name']; ?>" style="width: 100%; height: 200px;">
         
                     <div class="card-body">
-                       
                         <h5 class="card-title"><?php echo $place['pc_name']; ?></h5>
                         <p class="card-text"><?php echo $place['disc']; ?></p>
                     </div>
-            </div>
+                </div>
                 </div>
             <?php
             }
@@ -162,9 +164,25 @@
             </div>
         </div>
     </div>
-    <h2 class="container mt-5">Comments</h2>
-    <div id="comments" class="container mt-4 p-3"style="background-color: rgb(219, 230, 226);border-radius: 10px;">
+    <h2 class="container mt-5">Share your feedbacks about your travel experience</h2>
+
+    <div id="comments" class="container mt-4 p-3" style="background-color: rgb(219, 230, 226); border-radius: 10px;">
+        <form id="commentForm">
+            <div class="mb-3">
+            <label for="commentText" class="form-label">Comment here (Max 170 characters):</label>
+            <textarea class="form-control" id="commentText" rows="3" maxlength="170" required></textarea>
+            </div>
+
+            <div class="mb-3">
+            <label for="commentImage" class="form-label">Image (Upload from device):</label>
+            <input type="file" class="form-control" id="commentImage" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+        <h2 class="mt-3">Comments</h2>
     </div>
+
     <footer class="bg-dark text-white py-4 mt-5 text-center">
       <div class="container-fluid">
           <div class="row">
@@ -185,7 +203,7 @@
               </div>
           </div>
           <div>
-            <p>&copy; 2023 Designed By <i>CODE CRAFTERZ</i></p>
+            <p>&copy; 2023 Designed By <a href="https://github.com/CodeCrafterz-TourWise"><i>CODE CRAFTERZ</i></a></p>
           </div>
       </div>
     </footer>
