@@ -201,7 +201,7 @@
           </div>
         </div>
   </div>
-  <footer class="bg-dark text-white py-4" style="margin-top: 30px;text-align: center;">
+  <footer class="bg-dark text-white py-4 mt-5 text-center">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
