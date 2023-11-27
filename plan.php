@@ -106,7 +106,7 @@
     <h2>Choose a province for your preference</h2>
       <div class="row mb-3 mt-4">
           <div class="col-md-3 mb-3">
-            <a href="provinces/western.html">
+            <a href="province.php?id=1">
               <div class="card position-relative">
                   <img src="assets/Colombo Fort.jpg" class="card-img-top" alt="Western Province"style="width: 100%; height: 200px;">
                   <div class="card-img-overlay">
@@ -120,7 +120,7 @@
           </div>
   
           <div class="col-md-3 mb-3">
-            <a href="provinces/eastern.html">
+            <a href="province.php?id=3">
               <div class="card position-relative">
                   <img src="assets/Trincomalee beach.webp" class="card-img-top" alt="Eastern Province"style="width: 100%; height: 200px;">
                   <div class="card-img-overlay">
@@ -133,7 +133,7 @@
             </a>
           </div>
           <div class="col-md-3 mb-3">
-            <a href="provinces/southern.html">
+            <a href="province.php?id=6">
               <div class="card position-relative">
                   <img src="assets/Galle Fort.jpg" class="card-img-top" alt="Southern Province"style="width: 100%; height: 200px;">
                   <div class="card-img-overlay">
@@ -146,7 +146,7 @@
             </a>
           </div>
           <div class="col-md-3 mb-3">
-            <a href="provinces/central.html">
+            <a href="province.php?id=2">
             <div class="card position-relative">
                 <img src="assets/Pinnawala Elephant orphanage.jpg" class="card-img-top" alt="Central Province"style="width: 100%; height: 200px;">
                 <div class="card-img-overlay">
@@ -161,7 +161,7 @@
         </div>
         <div class="row mb-3">
           <div class="col-md-3 mb-3">
-            <a href="provinces/northern.html">
+            <a href="province.php?id=5">
             <div class="card position-relative">
                 <img src="assets/jaffna library.jpg" class="card-img-top" alt="Northern Province"style="width: 100%; height: 200px;">
                 <div class="card-img-overlay">
@@ -174,7 +174,7 @@
             </a>
           </div>
           <div class="col-md-3 mb-3">
-            <a href="provinces/uva.html">
+            <a href="province.php?id=7">
             <div class="card position-relative">
                 <img src="assets/Little Adam's peak.jpg" class="card-img-top" alt="Uva Province"style="width: 100%; height: 200px;">
                 <div class="card-img-overlay">
@@ -187,7 +187,7 @@
             </a>
           </div>
           <div class="col-md-3 mb-3">
-            <a href="provinces/northcentral.html">
+            <a href="province.php?id=4">
             <div class="card position-relative">
                 <img src="assets/Mihintale.jpg" class="card-img-top" alt="North Central Province"style="width: 100%; height: 200px;">
                 <div class="card-img-overlay">
