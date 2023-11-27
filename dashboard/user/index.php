@@ -1,6 +1,12 @@
 <?php
-require_once('../../includes/config.php');
 require_once('../../includes/sessions.php');
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+  // Redirect to the login page
+  header("Location: ../../login_page.php");
+  exit();
+}
 
 ?>
 
@@ -51,12 +57,12 @@ require_once('../../includes/sessions.php');
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-        
+
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="../../assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo"$login_session"?></span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo "$login_session" ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -121,7 +127,7 @@ require_once('../../includes/sessions.php');
         </a>
       </li>
 
-      
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" href="users-profile.php">
@@ -142,11 +148,11 @@ require_once('../../includes/sessions.php');
       </nav>
     </div><!-- End Page Title -->
 
-    
+
 
   </main><!-- End #main -->
 
-  
+
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

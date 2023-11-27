@@ -16,9 +16,5 @@ $login_username = $row['username'];
 $login_password = $row['password'];
 $login_role = $row['role'];
 
-if (!isset($login_session)) {
-    mysqli_close($con); // Closing Connection
-    header('Location: index.php'); // Redirecting To Home Page
-    exit(); // Make sure to exit after redirection to prevent further script execution
-}
+
 ?>
