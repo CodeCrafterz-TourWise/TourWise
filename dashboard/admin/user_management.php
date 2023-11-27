@@ -105,13 +105,13 @@ while ($userRow = mysqli_fetch_assoc($allUsersQuery)) {
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.php">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#tables-nav" href="user_management.php">
+        <a class="nav-link " data-bs-target="#tables-nav" href="user_management.php">
           <i class="bi bi-layout-text-window-reverse"></i><span>User Management</span>
         </a>
       </li>
