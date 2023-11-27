@@ -193,7 +193,7 @@
       </div>
     </div>
   </section>
-  <footer class="bg-dark text-white py-4" style="margin-top: 30px;text-align: center;">
+  <footer class="bg-dark text-white py-4 mt-5 text-center" >
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
@@ -207,8 +207,8 @@
           <h4>Quick Links</h4>
           <ul style="list-style-type: none;padding-inline-start: 0;">
             <li><a href="#">Home</a></li>
-            <li><a href="plan.html">Plan your visit</a></li>
-            <li><a href="todo.html">Todo</a></li>
+            <li><a href="plan.php">Plan your visit</a></li>
+            <li><a href="todo.php">Todo</a></li>
           </ul>
         </div>
       </div>
