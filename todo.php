@@ -109,7 +109,7 @@
             $sql = "SELECT * FROM todos where u_id=$login_id";
             echo "<div class='container'>";
 
-            echo "<table class='table datatable'style='margin-bottom: 20px;'>";
+            echo "<table class='table datatable' style='margin-bottom: 20px;'>";
             // echo "<h2><caption>Tasks</caption></h2>";
 
             echo "<thead>";
@@ -145,6 +145,7 @@
             echo "</div>";
             ?>
           </div>
+
         </div>
       </section>
     </div>
@@ -233,22 +234,9 @@
               // Handle the response
               console.log(data);
 
-              // Show success message
-              Swal.fire({
-                title: 'Deleted!',
-                text: 'Your task has been deleted.',
-                icon: 'success',
-                showCancelButton: false,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ok!',
-              });
-
               // Reload the page after successful deletion
-              setTimeout(() => {
-                // Reload the page after successful deletion
-                location.reload();
-              }, 5000);
+              location.reload();
+
             } catch (error) {
               console.error('Error:', error);
             }
