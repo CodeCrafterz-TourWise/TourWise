@@ -35,11 +35,13 @@
     while ($guide = mysqli_fetch_assoc($guidesResult)) {
         $guides[] = $guide;
     }
-    // Retrieve comments
-    $commentsQuery = "SELECT * FROM comments WHERE pro_id = $provinceId";
+    // Retrieve comments with user names
+    $commentsQuery = "SELECT comments.*, users.name as user_name FROM comments
+                    JOIN users ON comments.u_id = users.user_id
+                    WHERE pro_id = $provinceId";
     $commentsResult = mysqli_query($con, $commentsQuery);
 
-    // Fetch the comments data
+    // Fetch the comments data with user names
     $comments = [];
     while ($comment = mysqli_fetch_assoc($commentsResult)) {
         $comments[] = $comment;
@@ -201,9 +203,25 @@
                     <div class="card">
                         <div class="card-body">
                             <p class="card-text"><?php echo $comment['c_text']; ?></p>
+                            <p class="card-text"><strong>Posted by:</strong> <?php echo $comment['user_name']; ?></p>
                             <?php
                             if (!empty($comment['c_image'])) {
                                 echo '<img src="' . $comment['c_image'] . '" class="img-fluid" alt="Comment Image">';
+                            }
+                            ?>
+                            <?php
+                            if (isset($_SESSION['login_user'])) {
+                                // Storing Session
+                                $user_check = $_SESSION['login_user'];
+
+                                // SQL Query To Fetch Complete Information Of User
+                                $ses_sql = mysqli_query($con, "select * from users where username='$user_check'");
+                                $row = mysqli_fetch_assoc($ses_sql);
+                                $login_id = $row['user_id'];
+                                // Display delete button only if the logged-in user is the owner of the comment
+                                if ($comment['u_id'] == $login_id) {
+                                    echo '<a href="delete_comment.php?comment_id=' . $comment['comment_id'] . '&province_id=' . $provinceId . '" class="btn btn-danger mt-2">Delete</a>';
+                                }
                             }
                             ?>
                         </div>
@@ -214,6 +232,7 @@
             ?>
         </div>
     </div>
+
 
     <footer class="bg-dark text-white py-4 mt-5 text-center">
       <div class="container-fluid">
