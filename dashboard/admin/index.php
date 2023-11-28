@@ -40,7 +40,7 @@ require_once('../../includes/sessions.php');
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="../../index.php" class="logo d-flex align-items-center">
         <img src="../../assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Tour Wise</span>
       </a>
@@ -111,6 +111,24 @@ require_once('../../includes/sessions.php');
     <div class="pagetitle">
       <h1>Dashboard</h1>
     </div><!-- End Page Title -->
+    <!-- ======= Event Update Form ======= -->
+  <div class="container mt-5">
+    <h2>Event Update</h2>
+    <form action="event_update.php" method="post">
+      <div class="mb-3">
+        <label for="eventTitle" class="form-label">Event Title</label>
+        <input type="text" class="form-control" id="eventTitle" name="eventTitle" required>
+      </div>
+      <div class="mb-3">
+        <label for="eventDescription" class="form-label">Event Description</label>
+        <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3" required></textarea>
+      </div>
+      <!-- Include a hidden input for admin_id -->
+      <input type="hidden" name="adminId" value="<?php echo $login_id; ?>">
+      <button type="submit" class="btn btn-primary">Post Update</button>
+    </form>
+  </div>
+
 
   </main><!-- End #main -->
 

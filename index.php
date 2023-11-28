@@ -111,6 +111,23 @@
       <a href="javascript:void(0);" onclick="scrollToSection('intro')" class="btn btn-primary">Get Started</a>
     </div>
   </div>
+    <!-- Display Event Updates Section -->
+  <section class="container mt-5">
+    <h2>Event Updates</h2>
+    <?php
+    // Fetch event updates from the database and display them here
+    $eventQuery = "SELECT * FROM events ORDER BY event_id DESC LIMIT 5";
+    $eventResult = mysqli_query($con, $eventQuery);
+
+    while ($event = mysqli_fetch_assoc($eventResult)) {
+      echo '<div>';
+      echo '<h6>' . $event['title'] . '</h6>';
+      echo '<p>' . $event['description'] . '</p>';
+      echo '<hr>';
+      echo '</div>';
+    }
+    ?>
+  </section>
 
   <section id="intro" class="container mt-5" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 10px;margin-top:80px;">
     <div class="row">
