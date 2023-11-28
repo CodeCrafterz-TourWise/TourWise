@@ -127,9 +127,37 @@ require_once('../../includes/sessions.php');
       <input type="hidden" name="adminId" value="<?php echo $login_id; ?>">
       <button type="submit" class="btn btn-primary">Post Update</button>
     </form>
-  </div>
+    <?php
+    // Retrieve and display event updates
+    $selectQuery = "SELECT * FROM events ORDER BY event_id DESC"; // Order by the most recent event first
+    $result = mysqli_query($con, $selectQuery);
 
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $eventId = $row['event_id'];
+            $eventTitle = $row['title'];
+            $eventDescription = $row['description'];
 
+            // Display event update with a delete option
+            echo '<div class="mt-4">';
+            echo "<h3>$eventTitle</h3>";
+            echo "<p>$eventDescription</p>";
+
+            // Check if the user is authorized to delete
+            if ($login_id == $row['admin_id']) {
+                echo '<form action="delete_event.php" method="post">';
+                echo '<input type="hidden" name="eventId" value="' . $eventId . '">';
+                echo '<button type="submit" class="btn btn-danger">Delete</button>';
+                echo '</form>';
+            }
+
+            echo '</div>';
+        }
+    } else {
+        echo '<p>No event updates available.</p>';
+    }
+    ?>
+</div>
   </main><!-- End #main -->
 
 

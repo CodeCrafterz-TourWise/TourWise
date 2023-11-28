@@ -185,7 +185,7 @@
 
             <div class="mb-3">
                 <label for="commentImage" class="form-label">Image (Upload from device):</label>
-                <input type="file" class="form-control" id="commentImage" name="commentImage" required>
+                <input type="file" class="form-control" id="commentImage" accept=".jpg, .jpeg, .png" name="commentImage" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Post Comment</button>
