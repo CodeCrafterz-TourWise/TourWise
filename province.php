@@ -220,7 +220,7 @@
                                 $login_id = $row['user_id'];
                                 // Display delete button only if the logged-in user is the owner of the comment
                                 if ($comment['u_id'] == $login_id) {
-                                    echo '<a href="delete_comment.php?id=' . $comment['id'] . '&province_id=' . $provinceId . '" class="btn btn-danger mt-2">Delete</a>';
+                                    echo '<a href="delete_comment.php?comment_id=' . $comment['comment_id'] . '&province_id=' . $provinceId . '" class="btn btn-danger mt-2">Delete</a>';
                                 }
                             }
                             ?>
