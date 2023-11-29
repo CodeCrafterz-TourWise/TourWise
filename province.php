@@ -13,9 +13,8 @@
     $provinceData = mysqli_fetch_assoc($result);
 
     // retrieved place and discription
-    $placeQuery = "SELECT place.*, discription.disc 
+    $placeQuery = "SELECT place.*
                 FROM place 
-                JOIN discription ON place.pcId = discription.pcId 
                 WHERE place.p_id = $provinceId";
 
     $placesResult = mysqli_query($con, $placeQuery);
@@ -140,7 +139,7 @@
         
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $place['pc_name']; ?></h5>
-                        <p class="card-text"><?php echo $place['disc']; ?></p>
+                        <p class="card-text"><?php echo $place['discription']; ?></p>
                     </div>
                 </div>
                 </div>
