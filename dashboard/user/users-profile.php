@@ -54,7 +54,6 @@
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
         <li class="nav-item dropdown pe-3">
-
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-person-circle"></i>
             <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo "$login_session" ?></span>

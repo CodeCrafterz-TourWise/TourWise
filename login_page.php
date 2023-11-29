@@ -93,7 +93,7 @@ if (isset($_SESSION['login_user'])) {
           </div>
         </div>
         <div class="credits">
-          Developed by <a href="#">Code-Crafterz</a>
+          Developed by <a href="https://github.com/CodeCrafterz-TourWise">Code-Crafterz</a>
         </div>
       </section>
 
