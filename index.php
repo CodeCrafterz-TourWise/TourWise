@@ -9,10 +9,11 @@
   <link href="assets/img/logo.png" rel="apple-touch-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="assets/css/style.css" rel="stylesheet">
   <style>
-      a{
-        text-decoration:none;
-      }
+    a{
+      text-decoration:none;
+    }
     .hero-image {
       background-image: url('assets/coverbg.jpg');
       background-position: center;
@@ -63,7 +64,7 @@
   </style>
 </head>
 
-<body>
+<body style="background-color: #fff;">
   <nav id="navbar" class="navbar fixed-top navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 h1">Tour Wise</span>
@@ -164,7 +165,6 @@
       </div>
     </div>
   </section>
-
   <section class="container mt-5" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 10px;">
     <h2 style="color:#434f5b;">Top Places to Visit in Sri Lanka</h2><br>
     <div class="row">
