@@ -217,7 +217,7 @@
           if (result.value) {
             try {
               // If the user clicks "Yes", proceed with the deletion
-              const response = await fetch('delete_task.php', {
+              const response = await fetch('delete_todo.php', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/x-www-form-urlencoded',
