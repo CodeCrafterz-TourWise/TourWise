@@ -1,5 +1,5 @@
 <?php
-include("../../includes/profile_update.php");
+include("../../includes/sessions.php");
 ?>
 
 
