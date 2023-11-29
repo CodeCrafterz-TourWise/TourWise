@@ -10,6 +10,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+      a{
+        text-decoration:none;
+      }
     .hero-image {
       background-image: url('assets/coverbg.jpg');
       background-position: center;
@@ -166,6 +169,7 @@
     <h2 style="color:#434f5b;">Top Places to Visit in Sri Lanka</h2><br>
     <div class="row">
       <div class="col-md-4">
+      <a href="province.php?id=1">
         <div class="card mb-4">
           <img src="assets/Galle-Face-Green.jpg" class="card-img-top" alt="Galle face" style="width: 100%; height: 200px;">
           <div class="card-body">
@@ -173,8 +177,10 @@
             <p class="card-text">The Galle Face Green is a beautiful beach park in Colombo.</p>
           </div>
         </div>
+      </a>
       </div>
       <div class="col-md-4">
+      <a href="province.php?id=2">
         <div class="card mb-4">
           <img src="assets/knuckles-mountain-range.jpg" class="card-img-top" alt="Knuckles" style="width: 100%; height: 200px;">
           <div class="card-body">
@@ -182,8 +188,10 @@
             <p class="card-text">Knuckles Mountain range is an unusual terrestrial landform located in Matale and Kandy.</p>
           </div>
         </div>
+      </a>
       </div>
       <div class="col-md-4">
+      <a href="province.php?id=2">
         <div class="card mb-4">
           <img src="assets/Sigiriya Rock.jpg" class="card-img-top" alt="Sigiriya" style="width: 100%; height: 200px;">
           <div class="card-body">
@@ -191,8 +199,10 @@
             <p class="card-text">Sigiriya Rock or the Lion Rock is an ancient fort located in the Matale District in central Sri Lanka.</p>
           </div>
         </div>
+      </a>
       </div>
       <div class="col-md-4">
+      <a href="province.php?id=3">
         <div class="card mb-4">
           <img src="assets/Arugam Bay.jpg" class="card-img-top" alt="Arugam bay" style="width: 100%; height: 200px;">
           <div class="card-body">
@@ -200,8 +210,10 @@
             <p class="card-text">The Sri Lankan coastal town of Arugam Bay lies on the Indian Ocean, 320 kilometers from the capital city Colombo.</p>
           </div>
         </div>
+      </a>
       </div>
       <div class="col-md-4">
+      <a href="province.php?id=5">
         <div class="card mb-4">
           <img src="assets/fort.jpg" class="card-img-top" alt="Jaffna fort" style="width: 100%; height: 200px;">
           <div class="card-body">
@@ -209,8 +221,10 @@
             <p class="card-text">Long the gatehouse of the city, the vast Jaffna fort, overlooking the Jaffna lagoon, has been fought over for centuries.
           </div>
         </div>
+      </a>
       </div>
       <div class="col-md-4">
+      <a href="province.php?id=2">
         <div class="card mb-4">
           <img src="assets/Royal botanical gardens Peradeniya.webp" class="card-img-top" alt="Peradeniya" style="width: 100%; height: 200px;">
           <div class="card-body">
@@ -218,6 +232,7 @@
             <p class="card-text">The most prominent garden in Sri Lanka, Royal Botanical Gardens is situated 5 km west of Kandy.</p>
           </div>
         </div>
+      </a>
       </div>
     </div>
   </section>
