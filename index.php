@@ -121,34 +121,9 @@
       <a href="javascript:void(0);" onclick="scrollToSection('intro')" class="btn btn-primary">Get Started</a>
     </div>
   </div>
-  <!-- Display Event Updates Section -->
-  <section class="container mt-5">
-    <h2>Event Updates</h2>
-    <?php
-    // Fetch event updates from the database and display them here
-    $eventQuery = "SELECT * FROM events ORDER BY event_id DESC LIMIT 5";
-    $eventResult = mysqli_query($con, $eventQuery);
-
-    while ($event = mysqli_fetch_assoc($eventResult)) {
-      echo '<div class="col-md-6 py-1">';
-      echo '<div class="card">';
-      echo '<div class="card-body">';
-      echo '<img src="assets/new.gif" alt="GIF" class="card-corner-gif">';
-      echo '<h6 class="card-title">' . $event['title'] . '</h6>';
-      echo '<p class="card-text">' . $event['description'] . '</p>';
-      echo '</div>';
-      echo '</div>';
-      echo '</div>';
-      echo '</div>';
-    }
-
-
-    ?>
-  </section>
-
-  <section id="intro" class="container mt-5" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 10px;margin-top:80px;">
+  <section id="intro" class="container mt-5">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-4" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 10px 0px 0px 10px;">
         <h2 style="color:#434f5b">About Sri Lankan Tourism</h2>
         <p>
           "Explore the beauty of Sri Lanka, often called the 'Pearl of the Indian Ocean.' This tropical paradise is known for its stunning beaches, lush landscapes, rich history, and warm culture. Whether you love the beach, seek adventure, or adore history, Sri Lanka has it all.</p>
@@ -162,8 +137,27 @@
           Don't forget to enjoy Sri Lanka's famous tea and try its delicious cuisine, a blend of flavorful spices. Sri Lanka's unique charm and diverse attractions make it a great destination for all types of travelers."
         </p>
       </div>
-      <div class="col-lg-6">
-        <img src="assets/teaplucking.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
+      <div class="col-lg-4 rounded-right" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 0px 10px 10px 0px;">
+        <!-- <img src="assets/teaplucking.jpg" class="img-fluid" style="max-width: 100%; height: auto;"> -->
+        <img src="assets/lotustower.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
+      </div>
+      <div class="col-lg-4">
+      <div style="color:#fff;background-color: #2b3035;padding: 1em;border-radius: 10px;">
+      <h2 style="color:#0d6efd">Event Updates</h2>
+        <?php
+        // Fetch event updates from the database and display them here
+        $eventQuery = "SELECT * FROM events ORDER BY event_id DESC LIMIT 4";
+        $eventResult = mysqli_query($con, $eventQuery);
+
+        while ($event = mysqli_fetch_assoc($eventResult)) {
+          echo '<div>';
+          echo '<h6 style="display: flex; align-items: center;">' . $event['title'] . '<img src="assets/new.gif" alt="GIF" width="20px" height="20px" style="margin-left: 5px;"></h6>';
+          echo '<p>' . $event['description'] . '</p>';
+          echo '<hr>';
+          echo '</div>';
+        }            
+        ?>
+        </div>
       </div>
     </div>
   </section>
