@@ -220,7 +220,7 @@ include("../../includes/sessions.php");
                       </div>
                       <div class="modal-body">
                         <!-- Add name attribute to the form -->
-                        <form id="change-password-form" action="../../includes/change_password.php" method="post" name="change-password-form">
+                        <form id="change-password-form" action="change_password.php" method="post" name="change-password-form">
                           <div class="mb-3">
                             <label for="current-password" class="form-label">Current Password</label>
                             <input type="password" class="form-control" id="current-password" name="current_password" required>

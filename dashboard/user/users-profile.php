@@ -158,6 +158,7 @@
 
                   <div class="text-center">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile-edit">Edit Profile</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#change-password">Change Password</button>
                   </div>
 
                   <!-- Edit Profile Modal -->
@@ -193,6 +194,40 @@
                             </div>
                           </form>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                 <!-- Change Password Modal -->
+                 <div class="modal fade" id="change-password" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Add name attribute to the form -->
+                        <form id="change-password-form" action="change_password.php" method="post" name="change-password-form">
+                          <div class="mb-3">
+                            <label for="current-password" class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="current-password" name="current_password" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="new-password" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="new-password" name="new_password" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm-password" name="confirm_password" required>
+                          </div>
+                          <button type="submit" class="btn btn-primary" name="change_password">Change Password</button>
+
+                          <div class="alert-bg-success" id="change-password-message">
+                            <!-- Display change password success/failure messages here -->
+                          </div>
+                        </form>
                       </div>
                     </div>
                   </div>

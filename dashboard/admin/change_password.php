@@ -1,5 +1,5 @@
 <?php
-include('sessions.php');
+include('../../includes/sessions.php');
 
 if (mysqli_connect_error()) {
     echo "Sorry Not Connected";
@@ -25,7 +25,7 @@ if (isset($_POST['change_password'])) {
                 echo "
                 <script>
                     alert('Your Password Successfully Changed');
-                    window.location.href = '../dashboard/admin/users-profile.php'; // You might want to adjust the redirection based on the user's role
+                    window.location.href = 'users-profile.php'; // You might want to adjust the redirection based on the user's role
                 </script>";
             } else {
                 echo "Error updating password: " . mysqli_error($con);
@@ -34,14 +34,14 @@ if (isset($_POST['change_password'])) {
             echo "
             <script>
                 alert('New Password and Confirm Password do not match');
-                window.location.href = '../dashboard/admin/users-profile.php'; // Redirect to the profile page
+                window.location.href = 'users-profile.php'; // Redirect to the profile page
             </script>";
         }
     } else {
         echo "
         <script>
             alert('Current Password is incorrect');
-            window.location.href = '../dashboard/admin/users-profile.php'; // Redirect to the profile page
+            window.location.href = 'users-profile.php'; // Redirect to the profile page
         </script>";
     }
 } else {
