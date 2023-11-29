@@ -139,7 +139,7 @@
         
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $place['pc_name']; ?></h5>
-                        <p class="card-text"><?php echo $place['discription']; ?></p>
+                        <p class="card-text"><?php echo $place['description']; ?></p>
                     </div>
                 </div>
                 </div>
