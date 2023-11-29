@@ -79,7 +79,7 @@ require_once('../../includes/sessions.php');
       </li><!-- End Dashboard Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" href="user_management.php">
-          <i class="bi bi-layout-text-window-reverse"></i><span>User Management</span>
+        <i class="bi bi-person-fill-gear"></i><span>User Management</span>
         </a>
       </li>
       <li class="nav-item">
