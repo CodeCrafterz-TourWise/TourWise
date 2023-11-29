@@ -12,8 +12,8 @@ require_once('../../includes/sessions.php');
   <title>AdminPanel- TourWise</title>
 
   <!-- Favicons -->
-  <link href="../../assets/img/Logo.png" rel="icon">
-  <link href="../../assets/img/Logo.png" rel="apple-touch-icon">
+  <link href="../../assets/img/logo.png" rel="icon">
+  <link href="../../assets/img/logo.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -96,61 +96,66 @@ require_once('../../includes/sessions.php');
     </div><!-- End Page Title -->
 
     <!-- ======= Event Update Form ======= -->
-    <div class="container mt-5">
-      <h2>Event Update</h2>
-      <form action="post_event.php" method="post">
-        <div class="mb-3">
-          <label for="eventTitle" class="form-label">Event Title</label>
-          <input type="text" class="form-control" id="eventTitle" name="eventTitle" required>
-        </div>
-        <div class="mb-3">
-          <label for="eventDescription" class="form-label">Event Description</label>
-          <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3" required></textarea>
-        </div>
-        <!-- Include a hidden input for admin_id -->
-        <input type="hidden" name="adminId" value="<?php echo $login_id; ?>">
-        <button type="submit" class="btn btn-primary">Post Update</button>
-      </form>
-      <?php
-      // Retrieve and display event updates
-      $selectQuery = "SELECT * FROM events ORDER BY event_id DESC"; // Order by the most recent event first
-      $result = mysqli_query($con, $selectQuery);
-
-      echo '<div class="row">';
-
-      if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-          $eventId = $row['event_id'];
-          $eventTitle = $row['title'];
-          $eventDescription = $row['description'];
-
-          // Display event update with a delete option
-
-          echo '<div class="col-md-4 py-3">';
-          echo '<div class="card">';
-          echo '<div class="card-body">';
-          echo "<h3 class='card-title'>$eventTitle</h3>";
-          echo "<p class='card-text'>$eventDescription</p>";
-
-          // Check if the user is authorized to delete
-          if ($login_id == $row['admin_id']) {
-            echo '<form action="delete_event.php" method="post class="card-footer">';
-            echo '<input type="hidden" name="eventId" value="' . $eventId . '">';
-            echo '<button type="submit" class="btn btn-danger" style="float:right;">Delete</button>';
-            echo '</form>';
-          }
-
-          echo '</div>';
-          echo '</div>';
-          echo '</div>';
-        }
-      } else {
-        echo '<p>No event updates available.</p>';
-      }
-      echo '</div>';
-      ?>
+    <div class="container col-lg-12 mt-5">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Event Update</h2>
+        <form action="post_event.php" method="post">
+            <div class="mb-3">
+                <label for="eventTitle" class="form-label">Event Title</label>
+                <input type="text" class="form-control" id="eventTitle" name="eventTitle" required>
+            </div>
+            <div class="mb-3">
+                <label for="eventDescription" class="form-label">Event Description</label>
+                <textarea class="form-control" id="eventDescription" name="eventDescription" rows="3" required></textarea>
+            </div>
+            <!-- Include a hidden input for admin_id -->
+            <input type="hidden" name="adminId" value="<?php echo $login_id; ?>">
+            <button type="submit" class="btn btn-primary">Post Update</button>
+        </form>
     </div>
-  </main><!-- End #main -->
+    </div>
+    <?php
+    // Retrieve and display event updates
+    $selectQuery = "SELECT * FROM events ORDER BY event_id DESC"; // Order by the most recent event first
+    $result = mysqli_query($con, $selectQuery);
+
+    echo '<div class="row">';
+
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $eventId = $row['event_id'];
+            $eventTitle = $row['title'];
+            $eventDescription = $row['description'];
+
+            // Display event update with a delete option
+
+            echo '<div class="col-md-4 py-3">';
+            echo '<div class="card">';
+            echo '<div class="card-body">';
+            echo "<h3 class='card-title'>$eventTitle</h3>";
+            echo "<p class='card-text'>$eventDescription</p>";
+
+            // Check if the user is authorized to delete
+            if ($login_id == $row['admin_id']) {
+                echo '<form action="delete_event.php" method="post" class="card-footer">';
+                echo '<input type="hidden" name="eventId" value="' . $eventId . '">';
+                echo '<button type="submit" class="btn btn-danger" style="float:right;">Delete</button>';
+                echo '</form>';
+            }
+
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+    } else {
+        echo '<p>No event updates available.</p>';
+    }
+    echo '</div>';
+    ?>
+</div>
+</main>
+<!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

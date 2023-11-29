@@ -63,7 +63,7 @@ include("../../includes/sessions.php");
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-          <li>
+            <li>
               <a class="dropdown-item d-flex align-items-center" href="../../index.php">
                 <i class="bi bi-house"></i>
                 <span>Home</span>
@@ -165,9 +165,12 @@ include("../../includes/sessions.php");
                     </div>
                   </div>
 
+                  <!-- Inside the Profile Details Section -->
                   <div class="text-center">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile-edit">Edit Profile</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#change-password">Change Password</button>
                   </div>
+
 
                   <!-- Edit Profile Modal -->
                   <div class="modal fade" id="profile-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -207,6 +210,39 @@ include("../../includes/sessions.php");
                   </div>
                 </div>
 
+                <!-- Change Password Modal -->
+                <div class="modal fade" id="change-password" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Add name attribute to the form -->
+                        <form id="change-password-form" action="../../includes/change_password.php" method="post" name="change-password-form">
+                          <div class="mb-3">
+                            <label for="current-password" class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="current-password" name="current_password" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="new-password" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="new-password" name="new_password" required>
+                          </div>
+                          <div class="mb-3">
+                            <label for="confirm-password" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm-password" name="confirm_password" required>
+                          </div>
+                          <button type="submit" class="btn btn-primary" name="change_password">Change Password</button>
+
+                          <div class="alert-bg-success" id="change-password-message">
+                            <!-- Display change password success/failure messages here -->
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
 
 
@@ -224,7 +260,7 @@ include("../../includes/sessions.php");
 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
   <!-- Vendor JS Files -->
