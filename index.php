@@ -142,7 +142,6 @@
         </p>
       </div>
       <div class="col-lg-4" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 0px 10px 10px 0px;">
-        <!-- <img src="assets/teaplucking.jpg" class="img-fluid" style="max-width: 100%; height: auto;"> -->
         <img src="assets/lotustower.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
       </div>
       <div class="col-lg-4">
