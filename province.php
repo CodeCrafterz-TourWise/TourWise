@@ -149,7 +149,7 @@
         </div>
     </div>
 
-        <div class="container">
+     <div class="container">
         <div class="row">
             <div class="col-md-6 mt-4">
                 <div id="map" style="height: 350px;width: auto;"></div>

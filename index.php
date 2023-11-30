@@ -141,7 +141,7 @@
           Don't forget to enjoy Sri Lanka's famous tea and try its delicious cuisine, a blend of flavorful spices. Sri Lanka's unique charm and diverse attractions make it a great destination for all types of travelers."
         </p>
       </div>
-      <div class="col-lg-4 rounded-right" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 0px 10px 10px 0px;">
+      <div class="col-lg-4" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 0px 10px 10px 0px;">
         <!-- <img src="assets/teaplucking.jpg" class="img-fluid" style="max-width: 100%; height: auto;"> -->
         <img src="assets/lotustower.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
       </div>
