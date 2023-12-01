@@ -168,7 +168,7 @@ include("../../includes/sessions.php");
                   <!-- Inside the Profile Details Section -->
                   <div class="text-center">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile-edit">Edit Profile</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#change-password">Change Password</button>
+                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#change-password">Change Password</button>
                   </div>
 
 
@@ -243,10 +243,6 @@ include("../../includes/sessions.php");
                     </div>
                   </div>
                 </div>
-
-
-
-
               </div><!-- End Bordered Tabs -->
 
             </div>

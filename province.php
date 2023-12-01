@@ -110,7 +110,7 @@
                     $dashboardLink = ($user_role == 1) ? 'dashboard/admin/index.php' : 'dashboard/user/users-profile.php';
 
                     // Display the "User" button with the appropriate href
-                    echo '<div>';
+                    echo '<div class="d-grid gap-2 d-md-block text-center">';
                     echo '<a href="' . $dashboardLink . '"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
                     echo '<i class="fa fa-user" aria-hidden="true"></i> ' . $login_session;
                     echo '</button></a>';
@@ -231,7 +231,7 @@
             ?>
         </div>
     </div>
-
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa fa-arrow-up"></i></a>
 
     <footer class="bg-dark text-white py-4 mt-5 text-center">
       <div class="container-fluid">
@@ -321,6 +321,9 @@
         loadMapScript();
 
     </script>
+    
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </body>

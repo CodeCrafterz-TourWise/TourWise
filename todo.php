@@ -66,7 +66,7 @@
           $dashboardLink = ($user_role == 1) ? 'dashboard/admin/index.php' : 'dashboard/user/users-profile.php';
 
           // Display the "User" button with the appropriate href
-          echo '<div>';
+          echo '<div class="d-grid gap-2 d-md-block text-center">';
           echo '<a href="' . $dashboardLink . '"><button class="btn btn-outline-light" type="button" aria-expanded="false">';
           echo '<i class="fa fa-user" aria-hidden="true"></i> ' . $login_session;
           echo '</button></a>';
@@ -148,7 +148,7 @@
       </section>
     </div>
   </main>
-
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa fa-arrow-up"></i></a>
 
   <footer class="bg-dark text-white py-4 sticky-bottom mt-5 text-center">
     <div class="container-fluid">
@@ -244,6 +244,8 @@
     });
   </script>
 
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>

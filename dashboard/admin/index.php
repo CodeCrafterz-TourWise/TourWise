@@ -128,7 +128,7 @@ require_once('../../includes/sessions.php');
             $eventTitle = $row['title'];
             $eventDescription = $row['description'];
 
-            // Display event update with a delete option
+            // Display event update with edit and delete option
 
             echo '<div class="col-md-4 py-3">';
             echo '<div class="card">';
@@ -136,14 +136,43 @@ require_once('../../includes/sessions.php');
             echo "<h3 class='card-title'>$eventTitle</h3>";
             echo "<p class='card-text'>$eventDescription</p>";
 
-            // Check if the user is authorized to delete
+
+            // Check if the user is authorized to delete and edit
             if ($login_id == $row['admin_id']) {
                 echo '<form action="delete_event.php" method="post" class="card-footer">';
                 echo '<input type="hidden" name="eventId" value="' . $eventId . '">';
+                // Edit button
+                echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal' . $eventId . '">Edit</button>';
                 echo '<button type="submit" class="btn btn-danger" style="float:right;">Delete</button>';
                 echo '</form>';
             }
 
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+
+            // Edit Modal
+            echo '<div class="modal fade" id="editModal' . $eventId . '" tabindex="-1" aria-labelledby="editModalLabel' . $eventId . '" aria-hidden="true">';
+            echo '<div class="modal-dialog">';
+            echo '<div class="modal-content">';
+            echo '<div class="modal-header">';
+            echo '<h5 class="modal-title" id="editModalLabel' . $eventId . '">Edit Event</h5>';
+            echo '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+            echo '</div>';
+            echo '<div class="modal-body">';
+            echo '<form action="edit_event.php" method="post">';
+            echo '<input type="hidden" name="eventId" value="' . $eventId . '">';
+            echo '<div class="mb-3">';
+            echo '<label for="editEventTitle" class="form-label">Event Title</label>';
+            echo '<input type="text" class="form-control" id="editEventTitle" name="editEventTitle" value="' . $eventTitle . '" required>';
+            echo '</div>';
+            echo '<div class="mb-3">';
+            echo '<label for="editEventDescription" class="form-label">Event Description</label>';
+            echo '<textarea class="form-control" id="editEventDescription" name="editEventDescription" rows="3" required>' . $eventDescription . '</textarea>';
+            echo '</div>';
+            echo '<button type="submit" class="btn btn-primary">Save Changes</button>';
+            echo '</form>';
+            echo '</div>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
@@ -153,9 +182,9 @@ require_once('../../includes/sessions.php');
     }
     echo '</div>';
     ?>
-</div>
-</main>
-<!-- End #main -->
+  </div>
+  </main>
+  <!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
