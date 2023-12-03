@@ -57,10 +57,6 @@
       height: 50px;
       /* Adjust the height as needed */
     }
-
-    footer a {
-      text-decoration: none;
-    }
   </style>
 </head>
 
@@ -127,22 +123,19 @@
   </div>
   <section id="intro" class="container mt-5">
     <div class="row">
-      <div class="col-lg-4" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 10px 0px 0px 10px;">
+      <div class="col-lg-8" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 10px 0px 0px 10px;">
         <h2 style="color:#434f5b">About Sri Lankan Tourism</h2>
-        <p>
-          "Explore the beauty of Sri Lanka, often called the 'Pearl of the Indian Ocean.' This tropical paradise is known for its stunning beaches, lush landscapes, rich history, and warm culture. Whether you love the beach, seek adventure, or adore history, Sri Lanka has it all.</p>
-        <p>
+        
+        <p><img src="assets/lotustower.jpg" style="width:340px;height:500px;margin-left:15px;float: right;">
+          "Explore the beauty of Sri Lanka, often called the 'Pearl of the Indian Ocean.' This tropical paradise is known for its stunning beaches, lush landscapes, rich history, and warm culture. Whether you love the beach, seek adventure, or adore history, Sri Lanka has it all.
+        <br><br>
           The country's endless beaches are perfect for sun and sea lovers. Its lush hills and forests are a paradise for adventurers, offering hikes and wildlife encounters. Explore ancient ruins that tell captivating stories about its past.
-        </p>
-        <p>
+        <br><br>
+        
           The friendly locals make you feel welcome, and you can't miss the chance to see the elephants, a symbol of the country. Surfers will find exciting waves along the coast, and the affordable train system offers scenic rides.
-        </p>
-        <p>
+        <br><br>
           Don't forget to enjoy Sri Lanka's famous tea and try its delicious cuisine, a blend of flavorful spices. Sri Lanka's unique charm and diverse attractions make it a great destination for all types of travelers."
         </p>
-      </div>
-      <div class="col-lg-4" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 0px 10px 10px 0px;">
-        <img src="assets/lotustower.jpg" class="img-fluid" style="max-width: 100%; height: auto;">
       </div>
       <div class="col-lg-4">
       <div style="color:#fff;background-color: #2b3035;padding: 1em;border-radius: 10px;">
