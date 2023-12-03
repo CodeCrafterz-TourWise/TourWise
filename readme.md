@@ -4,15 +4,15 @@ Welcome to Tourwise, your go-to platform for discovering the enchanting beauty o
 
 ## Project Objectives
 
-**Comprehensive Information:** Tourwise offers detailed information about the top tourist destinations in Sri Lanka, helping you plan your journey seamlessly.
+**Comprehensive Information:** Tourwise offers detailed information about the top tourist destinations in Sri Lanka categorized by province, helping you plan your journey seamlessly.
 
 **User Engagement:** Users can create accounts, share captivating images of their travel experiences, and provide valuable feedback on visited places.
 
-**Admin Updates:** Stay informed about event updates, precautions, and bad weather conditions through our admin account notifications.
+**Admin Updates:** Stay informed about new event updates, precautions through our admin account notifications.
 
 **Interactive Maps:** Explore the wonders of Sri Lanka through interactive maps that mark tourist hotspots, aiding in efficient trip planning.
 
-**Todo Visiting:** Plan your itinerary effortlessly with the "Todo Visiting" feature, allowing users to create lists of places they intend to visit.
+**Todo Visiting:** Plan your visits with the "Todo Visiting" feature, allowing users to create lists of places they intend to visit.
 
 **Tour Guide Information:** Access details about nearby tour guides in each province, enhancing your travel experience.
 
