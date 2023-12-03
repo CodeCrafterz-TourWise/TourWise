@@ -12,7 +12,7 @@
     // Fetch the province data
     $provinceData = mysqli_fetch_assoc($result);
 
-    // retrieved place and discription
+    // retrieved place and description
     $placeQuery = "SELECT place.*
                 FROM place 
                 WHERE place.p_id = $provinceId";
@@ -86,7 +86,7 @@
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="todo.php">Todo</a>
-                </li>
+              </li>
             </ul>
             <?php
                 session_start(); // Starting Session
@@ -145,7 +145,7 @@
         </div>
     </div>
 
-     <div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-6 mt-4">
                 <div id="map" style="height: 350px;width: auto;"></div>
