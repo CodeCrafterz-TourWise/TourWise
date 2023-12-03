@@ -63,10 +63,6 @@
       a{
         text-decoration:none;
       }
-      /* .card-body{
-        color:#434f5b;
-        background-color: #dbe6e2;
-      } */
       h2{
         color:#434f5b;
       }
