@@ -1,5 +1,5 @@
 <?php
-$hostname = 'localhost';
+$hostname = 'localhost:3310';
  // Specify the correct port number here if not remove it. 
 $username = 'root';
 $password = '';
