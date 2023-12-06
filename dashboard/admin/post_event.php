@@ -1,7 +1,7 @@
 <?php
-include('../../includes/sessions.php');  // Include your database configuration file
+include('../../includes/sessions.php');  // Include database configuration file and session check
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['post_event'])) { // Check if the form has been submitted using the POST method
     $eventTitle = mysqli_real_escape_string($con, $_POST["eventTitle"]);
     $eventDescription = mysqli_real_escape_string($con, $_POST["eventDescription"]);
     $adminId = mysqli_real_escape_string($con, $_POST["adminId"]);
@@ -17,5 +17,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Error saving event update
         echo "Error: " . $insertQuery . "<br>" . mysqli_error($con);
     }
+}
+else {
+    echo "Event post form not submitted."; // Output a message if the event post form is not submitted
 }
 ?>

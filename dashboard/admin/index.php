@@ -111,7 +111,7 @@ require_once('../../includes/sessions.php');
             </div>
             <!-- Include a hidden input for admin_id -->
             <input type="hidden" name="adminId" value="<?php echo $login_id; ?>">
-            <button type="submit" class="btn btn-primary">Post Update</button>
+            <button type="submit" class="btn btn-primary" name="post_event">Post Update</button>
         </form>
     </div>
     </div>

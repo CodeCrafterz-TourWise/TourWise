@@ -13,7 +13,7 @@
     $provinceData = mysqli_fetch_assoc($result);
 
     // retrieved place and description
-    $placeQuery = "SELECT place.*
+    $placeQuery = "SELECT *
                 FROM place 
                 WHERE place.p_id = $provinceId";
 
