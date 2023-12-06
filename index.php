@@ -123,7 +123,7 @@
   </div>
   <section id="intro" class="container mt-5">
     <div class="row">
-      <div class="col-lg-8" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 10px 0px 0px 10px;">
+      <div class="col-lg-8" style="background-color: rgb(242, 244, 243);padding: 1em;border-radius: 10px;">
         <h2 style="color:#434f5b">About Sri Lankan Tourism</h2>
         
         <p><img src="assets/lotustower.jpg" style="width:340px;height:500px;margin-left:15px;float: right;">
@@ -151,7 +151,7 @@
           echo '<p>' . $event['description'] . '</p>';
           echo '<hr>';
           echo '</div>';
-        }            
+        }
         ?>
         </div>
       </div>
