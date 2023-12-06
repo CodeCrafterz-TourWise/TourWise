@@ -1,8 +1,8 @@
 <?php
-include('../../includes/sessions.php');
+include('../../includes/sessions.php'); // Include the file containing session-related code
 
 if (mysqli_connect_error()) {
-    echo "Sorry Not Connected";
+    echo "Sorry Not Connected"; // Output an error message if there's a database connection error
 }
 
 if (isset($_POST['change_password'])) {
@@ -25,26 +25,26 @@ if (isset($_POST['change_password'])) {
                 echo "
                 <script>
                     alert('Your Password Successfully Changed');
-                    window.location.href = 'users-profile.php'; // You might want to adjust the redirection based on the user's role
+                    window.location.href = 'users-profile.php'; // Redirect to the user's profile page
                 </script>";
             } else {
-                echo "Error updating password: " . mysqli_error($con);
+                echo "Error updating password: " . mysqli_error($con); // Output an error message if the password update fails
             }
         } else {
             echo "
             <script>
                 alert('New Password and Confirm Password do not match');
-                window.location.href = 'users-profile.php'; // Redirect to the profile page
+                window.location.href = 'users-profile.php'; // Redirect to the user's profile page
             </script>";
         }
     } else {
         echo "
         <script>
             alert('Current Password is incorrect');
-            window.location.href = 'users-profile.php'; // Redirect to the profile page
+            window.location.href = 'users-profile.php'; // Redirect to the user's profile page
         </script>";
     }
 } else {
-    echo "Change password form not submitted.";
+    echo "Change password form not submitted."; // Output a message if the change password form is not submitted
 }
 ?>

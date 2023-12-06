@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToDo</title>
+  <title>My Journey</title>
   <link href="assets/img/logo.png" rel="icon">
   <link href="assets/img/logo.png" rel="apple-touch-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -43,7 +43,7 @@
             <a class="nav-link" href="plan.php">Plan your visit</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Todo</a>
+            <a class="nav-link active" aria-current="page" href="#">My Journey</a>
           </li>
         </ul>
         <?php
@@ -85,12 +85,13 @@
     <div class="container py-5">
       <section class="section register min-vh-100 d-flex py-4">
         <div class="container">
+        <h2>Save the journey plans you are gonna do in Sri Lanka</h2>
           <form method="post" action="add_todo.php">
             <div class="mb-3">
-              <label for="task" class="form-label">New Task:</label>
+              <label for="task" class="form-label">New Journey Plan:</label>
               <input type="text" class="form-control" id="task" name="task" required>
             </div>
-            <button type="submit" class="btn btn-primary">Add Task</button>
+            <button type="submit" class="btn btn-primary">Add Plan</button>
           </form>
           <div class="container py-5">
             <?php
@@ -108,10 +109,9 @@
             echo "<div class='container'>";
 
             echo "<table class='table datatable' style='margin-bottom: 20px;'>";
-            // echo "<h2><caption>Tasks</caption></h2>";
 
             echo "<thead>";
-            echo "<tr><th scope='col'>Tasks</th>";
+            echo "<tr><th scope='col'>Plans</th>";
             echo "<th scope='col'>Edit</th>";
             echo "<th scope='col'>Delete</th></tr>";
             echo "</thead>";
@@ -127,15 +127,15 @@
                 echo "<form method='post' action='todo_edit.php'>";
                 echo "<input type='hidden' name='task_id' value='$taskId'>";
                 echo "<div class='mb-3'>";
-                echo "<label for='edited_task' class='form-label'>Edit Task:</label>";
+                echo "<label for='edited_task' class='form-label'>Edit Plan:</label>";
                 echo "<input type='text' class='form-control' id='edited_task' name='edited_task' value='" . $row["task"] . "' required>";
                 echo "</div>";
-                echo "<button type='submit' name='update' class='btn btn-success'>Update Task</button>";
+                echo "<button type='submit' name='update' class='btn btn-success'>Update Plan</button>";
                 echo "</form>";
                 echo "</td></tr>";
               }
             } else {
-              echo "No tasks found.";
+              echo "No plans found.";
             }
 
             // Close the table
@@ -143,7 +143,6 @@
             echo "</div>";
             ?>
           </div>
-
         </div>
       </section>
     </div>
@@ -165,7 +164,7 @@
           <ul style="list-style-type: none;padding-inline-start: 0;">
             <li><a href="index.php">Home</a></li>
             <li><a href="plan.php">Plan your visit</a></li>
-            <li><a href="#">Todo</a></li>
+            <li><a href="#">My Journey</a></li>
           </ul>
         </div>
       </div>
