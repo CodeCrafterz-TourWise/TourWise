@@ -76,7 +76,7 @@
             <a class="nav-link" href="plan.php">Plan your visit</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="todo.php">Todo</a>
+            <a class="nav-link" href="todo.php">My Journey</a>
           </li>
         </ul>
         <?php
@@ -244,7 +244,7 @@
           <ul style="list-style-type: none;padding-inline-start: 0;">
             <li><a href="#">Home</a></li>
             <li><a href="plan.php">Plan your visit</a></li>
-            <li><a href="todo.php">Todo</a></li>
+            <li><a href="todo.php">My Journey</a></li>
           </ul>
         </div>
       </div>

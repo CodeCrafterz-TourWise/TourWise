@@ -63,7 +63,7 @@
               <a class="nav-link active" aria-current="page" href="#">Plan your visit</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="todo.php">Todo</a>
+                <a class="nav-link" href="todo.php">My Journey</a>
               </li>
           </ul>
           <?php
@@ -215,7 +215,7 @@
                 <ul style="list-style-type: none;padding-inline-start: 0;">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#">Plan your visit</a></li>
-                    <li><a href="todo.php">Todo</a></li>
+                    <li><a href="todo.php">My Journey</a></li>
                 </ul>
             </div>
         </div>
