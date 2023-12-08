@@ -7,29 +7,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $editEventTitle = $_POST['editEventTitle'];
     $editEventDescription = $_POST['editEventDescription'];
 
-    // Validate and sanitize the input as needed
+    // Sanitize the input (ensure to validate and sanitize thoroughly in a real-world scenario)
+    $editEventTitle = mysqli_real_escape_string($con, $editEventTitle);
+    $editEventDescription = mysqli_real_escape_string($con, $editEventDescription);
 
-    // Update the event in the database using prepared statements
-    $updateQuery = "UPDATE events SET title = ?, description = ? WHERE event_id = ?";
-    
-    // Prepare the statement
-    $stmt = mysqli_prepare($con, $updateQuery);
+    // Update the event in the database
+    $updateQuery = "UPDATE events SET title = '$editEventTitle', description = '$editEventDescription' WHERE event_id = $eventId";
 
-    // Bind parameters
-    mysqli_stmt_bind_param($stmt, "ssi", $editEventTitle, $editEventDescription, $eventId);
-
-    // Execute the statement
-    if (mysqli_stmt_execute($stmt)) {
+    // Execute the query
+    if (mysqli_query($con, $updateQuery)) {
         // Successful update
         header("Location: index.php"); // Redirect to the dashboard or wherever you want to go after editing
         exit();
     } else {
         // Handle the error
-        echo "Error updating event: " . mysqli_stmt_error($stmt);
+        echo "Error updating event: " . mysqli_error($con);
     }
-
-    // Close the statement
-    mysqli_stmt_close($stmt);
 } else {
     // If the form wasn't submitted via POST, redirect or handle accordingly
     header("Location: index.php");

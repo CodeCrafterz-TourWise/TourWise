@@ -1,5 +1,5 @@
 <?php
-include('includes/config.php');  // Include your database configuration file
+include('includes/config.php');
 
 session_start(); // Starting Session
 
@@ -26,7 +26,7 @@ if (isset($_SESSION['login_user'])) {
     }
 
     // Upload image
-    $targetDir = "uploads/";  // Create this directory in your project
+    $targetDir = "uploads/"; 
     $targetFile = $targetDir . basename($_FILES["commentImage"]["name"]);
     move_uploaded_file($_FILES["commentImage"]["tmp_name"], $targetFile);
 

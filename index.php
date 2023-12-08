@@ -53,9 +53,7 @@
       top: 0;
       right: 0;
       width: 50px;
-      /* Adjust the width as needed */
       height: 50px;
-      /* Adjust the height as needed */
     }
   </style>
 </head>
