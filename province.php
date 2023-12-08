@@ -308,7 +308,7 @@
         // Ensure that the initMap function is called when the API is loaded
         function loadMapScript() {
             const script = document.createElement("script");
-            script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDnNPxaYAj-7FHjdLMpvhCxdVhQN7Dt0fc&callback=initMap";
+            script.src = "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap";
             script.defer = true;
             document.body.appendChild(script);
         }
